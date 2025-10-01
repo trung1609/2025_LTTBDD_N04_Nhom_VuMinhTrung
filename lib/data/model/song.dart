@@ -17,6 +17,7 @@ class Song {
     required this.duration,
   });
 
+  //tạo object Song từ Json
   factory Song.fromJson(Map<String, dynamic> map) {
     return Song(
       id: map['id'],

@@ -6,7 +6,7 @@ import 'package:mobile_app/ui/home/viewmodel.dart';
 import 'package:mobile_app/ui/setting/setting.dart';
 import 'package:mobile_app/ui/user/user.dart';
 
-import '../now_playing/Playing.dart';
+import '../now_playing/playing.dart';
 
 class MusicApp extends StatelessWidget {
   const MusicApp({super.key});
