@@ -6,6 +6,8 @@ import 'package:mobile_app/ui/home/viewmodel.dart';
 import 'package:mobile_app/ui/setting/setting.dart';
 import 'package:mobile_app/ui/user/user.dart';
 
+import '../now_playing/Playing.dart';
+
 class MusicApp extends StatelessWidget {
   const MusicApp({super.key});
 
@@ -18,7 +20,7 @@ class MusicApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
       ),
-      home: MusicHomePage(),
+      home: const MusicHomePage(),
     );
   }
 }
@@ -56,10 +58,7 @@ class _MusicHomePageState extends State<MusicHomePage> {
               label: "Setting",
             ),
           ],
-          backgroundColor: Theme
-              .of(context)
-              .colorScheme
-              .onInverseSurface,
+          backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
         ),
         tabBuilder: (BuildContext context, int index) {
           return _tabs[index];
@@ -151,6 +150,45 @@ class _HomeTabPageState extends State<HomeTabPage> {
       });
     });
   }
+
+  void showBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return ClipRRect(
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+          child: Container(
+            height: 400,
+            color: Colors.grey,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Text("Modal Botton Sheet"),
+                  ElevatedButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text("Close Botton Sheet"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void navigate(Song song) {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+        builder: (context) {
+          return NowPlaying(songs: songs, playingSong: song);
+        },
+      ),
+    );
+  }
 }
 
 class _SongItemSection extends StatelessWidget {
@@ -172,13 +210,24 @@ class _SongItemSection extends StatelessWidget {
           height: 48,
           imageErrorBuilder: (context, error, stackTrace) {
             return Image.asset(
-              'assets/ITunes_12.2_logo.png', width: 48, height: 48,);
+              'assets/ITunes_12.2_logo.png',
+              width: 48,
+              height: 48,
+            );
           },
         ),
       ),
       title: Text(song.title),
       subtitle: Text(song.artist),
-      trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz)),
+      trailing: IconButton(
+        onPressed: () {
+          parent.showBottomSheet();
+        },
+        icon: const Icon(Icons.more_horiz),
+      ),
+      onTap: () {
+        parent.navigate(song);
+      },
     );
   }
 }
