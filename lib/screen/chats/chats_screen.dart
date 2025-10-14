@@ -1,4 +1,7 @@
 import 'package:chat_app/constants.dart';
+import 'package:chat_app/screen/calls/calls_screen.dart';
+import 'package:chat_app/screen/people/people_screen.dart';
+import 'package:chat_app/screen/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
@@ -9,6 +12,7 @@ class ChatsScreen extends StatefulWidget {
 
 class _ChatsScreenState extends State<ChatsScreen> {
   int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,19 +31,45 @@ class _ChatsScreenState extends State<ChatsScreen> {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: _selectedIndex,
-      onTap: (value){
+      onTap: (value) {
         setState(() {
           _selectedIndex = value;
         });
       },
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.messenger), label: "Chats"),
-        BottomNavigationBarItem(icon: Icon(Icons.people), label: "People"),
-        BottomNavigationBarItem(icon: Icon(Icons.call), label: "Calls"),
         BottomNavigationBarItem(
-          icon: CircleAvatar(
-            radius: 14,
-            backgroundImage: AssetImage('assets/images/user_2.png'),
+          icon: IconButton(onPressed: () {}, icon: Icon(Icons.chat_bubble)),
+          label: "Chats",
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PeopleScreen()),
+            ),
+            icon: Icon(Icons.people),
+          ),
+          label: "People",
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CallsScreen()),
+            ),
+            icon: Icon(Icons.call),
+          ),
+          label: "Calls",
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()),
+            ),
+            icon: CircleAvatar(
+              backgroundImage: AssetImage('assets/images/user_2.png'),
+            ),
           ),
           label: "Profile",
         ),
