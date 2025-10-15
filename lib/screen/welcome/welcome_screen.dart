@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:chat_app/screen/signin_or_signup/signin_or_signup_screen.dart';
 
-class WelcomeScreen extends StatelessWidget {
+import '../../l10n/app_localization.dart';
 
-  const WelcomeScreen({
-    super.key,
-  });
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -17,18 +17,20 @@ class WelcomeScreen extends StatelessWidget {
             Image.asset('assets/images/welcome_image.png'),
             const Spacer(flex: 3),
             Text(
-              "Welcome to our freedom \nmessaging app",
+              t.welcomeTitle,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineSmall!
-                  .copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.bold),
             ),
             const Spacer(),
             Text(
-              "Freedom talk any person of your \nmother language.",
+              t.welcomeSubtitle,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color!
-                    .withOpacity(0.64),
+                color: Theme.of(
+                  context,
+                ).textTheme.bodyLarge!.color!.withOpacity(0.64),
               ),
             ),
             const Spacer(flex: 4),
@@ -43,9 +45,9 @@ class WelcomeScreen extends StatelessWidget {
                   );
                 },
                 child: Row(
-                  children: const [
-                    Text("Skip"),
-                    Icon(Icons.arrow_forward_ios, size: 18),
+                  children: [
+                    Text(t.skip),
+                    const Icon(Icons.arrow_forward_ios, size: 18),
                   ],
                 ),
               ),

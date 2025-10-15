@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../models/chat_message.dart';
+
 class AudioMessage extends StatelessWidget {
   const AudioMessage({super.key, required this.message});
 

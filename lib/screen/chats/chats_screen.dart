@@ -4,7 +4,8 @@ import 'package:chat_app/components/drawer.dart';
 import 'package:chat_app/screen/calls/calls_screen.dart';
 import 'package:chat_app/screen/people/people_screen.dart';
 import 'package:chat_app/screen/profile/profile_screen.dart';
-import 'package:chat_app/main.dart'; // ⚡ Thêm import này để dùng MyApp.isDarkNotifier
+import 'package:chat_app/main.dart';
+import '../../l10n/app_localization.dart';
 import 'components/body.dart';
 
 class ChatsScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      drawer: const MyDrawer(), // Không cần truyền gì thêm
+      drawer: const MyDrawer(),
       body: const Body(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -33,9 +34,10 @@ class _ChatsScreenState extends State<ChatsScreen> {
   }
 
   AppBar buildAppBar() {
+    final t = AppLocalizations.of(context)!;
     return AppBar(
       backgroundColor: kPrimaryColor,
-      title: const Text("Chats"),
+      title: Text(t.chats),
       leading: Builder(
         builder: (context) => IconButton(
           onPressed: () => Scaffold.of(context).openDrawer(),
@@ -46,23 +48,30 @@ class _ChatsScreenState extends State<ChatsScreen> {
         // 🌗 Nút bật/tắt theme
         IconButton(
           icon: Icon(
-            MyApp.isDarkNotifier.value
-                ? Icons.light_mode
-                : Icons.dark_mode,
+            MyApp.isDarkNotifier.value ? Icons.light_mode : Icons.dark_mode,
           ),
           onPressed: () {
             MyApp.isDarkNotifier.value = !MyApp.isDarkNotifier.value;
           },
         ),
         IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.search),
+          icon: Icon(Icons.language),
+          tooltip: t.changeLanguage,
+          onPressed: () {
+            if (MyApp.localeNotifier.value.languageCode == 'en') {
+              MyApp.localeNotifier.value = const Locale('vi');
+            } else {
+              MyApp.localeNotifier.value = const Locale('en');
+            }
+          },
         ),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
       ],
     );
   }
 
   BottomNavigationBar buildBottomNavigationBar() {
+    final t = AppLocalizations.of(context)!;
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: _selectedIndex,
@@ -72,9 +81,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
         });
       },
       items: [
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.chat_bubble),
-          label: "Chats",
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.chat_bubble),
+          label: t.chats,
         ),
         BottomNavigationBarItem(
           icon: IconButton(
@@ -84,7 +93,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
             ),
             icon: const Icon(Icons.people),
           ),
-          label: "People",
+          label: t.people,
         ),
         BottomNavigationBarItem(
           icon: IconButton(
@@ -94,7 +103,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
             ),
             icon: const Icon(Icons.call),
           ),
-          label: "Calls",
+          label: t.calls,
         ),
         BottomNavigationBarItem(
           icon: IconButton(
@@ -106,7 +115,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
               backgroundImage: AssetImage('assets/images/user_2.png'),
             ),
           ),
-          label: "Profile",
+          label: t.profile,
         ),
       ],
     );

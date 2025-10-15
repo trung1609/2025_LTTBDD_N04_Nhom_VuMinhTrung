@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import '../l10n/app_localization.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -18,6 +19,7 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return MaterialButton(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -26,10 +28,7 @@ class PrimaryButton extends StatelessWidget {
       color: color,
       minWidth: double.infinity,
       onPressed: press,
-      child: Text(
-        text,
-        style: const TextStyle(color: Colors.white),
-      ),
+      child: Text(text, style: const TextStyle(color: Colors.white)),
     );
   }
 }

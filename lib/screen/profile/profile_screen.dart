@@ -1,15 +1,18 @@
 import 'package:chat_app/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localization.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        title: Text("Profile"),
+        title: Text(t.profile),
         actions: [
           Container(
             padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -17,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 Icon(Icons.report_gmailerrorred_rounded),
                 SizedBox(width: kDefaultPadding / 2),
-                Text("Report", style: Theme.of(context).textTheme.bodyMedium),
+                Text(t.report, style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           ),
@@ -52,19 +55,19 @@ class ProfileScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Name: Vũ Minh Trung",
+                      t.nameProfile,
                       style: Theme.of(
                         context,
                       ).textTheme.bodyMedium!.copyWith(fontSize: 18),
                     ),
                     Text(
-                      "Class: N04_Mobile",
+                      t.classProfile,
                       style: Theme.of(
                         context,
                       ).textTheme.bodyMedium!.copyWith(fontSize: 14.0),
                     ),
                     Text(
-                      "Member: 1 member",
+                      t.member,
                       style: Theme.of(
                         context,
                       ).textTheme.bodyMedium!.copyWith(fontSize: 14.0),
@@ -78,8 +81,8 @@ class ProfileScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              ProfileDetailRow(title: "Student code", value: "23010361"),
-              ProfileDetailRow(title: "Phone", value: "0868920271"),
+              ProfileDetailRow(title: t.studentCode, value: "23010361"),
+              ProfileDetailRow(title: t.phone, value: "0868920271"),
             ],
           ),
           SizedBox(height: kDefaultPadding),
@@ -98,21 +101,14 @@ class ProfileScreen extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(
-                  "About My Project And My Group",
+                  t.aboutMe,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     fontSize: 15.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 subtitle: Text(
-                  "This Flutter project is a modern messaging application with a clean and friendly interface.\n"
-                  "It includes user authentication with Sign in and Sign up screens.\n"
-                  "A welcome page introduces users to the app’s purpose.\n"
-                  "The chat list screen displays recent and active conversations.\n"
-                  "Users can send text, voice messages, images, and videos.\n"
-                  "The chat screen supports message status indicators and media previews.\n"
-                  "All UI components are fully responsive and visually consistent.\n"
-                  "This entire project was developed by myself.",
+                  t.detailAboutMe,
                   style: Theme.of(
                     context,
                   ).textTheme.bodyMedium!.copyWith(fontSize: 15.0),

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../l10n/app_localization.dart';
+
 class ChatInputField extends StatelessWidget {
-  const ChatInputField({
-    super.key,
-  });
+  const ChatInputField({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: kDefaultPadding,
@@ -50,7 +51,7 @@ class ChatInputField extends StatelessWidget {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: "Type message",
+                          hintText: t.typeMessage,
                           border: InputBorder.none,
                         ),
                       ),

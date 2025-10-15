@@ -5,13 +5,16 @@ import 'package:chat_app/screen/people/people_screen.dart';
 import 'package:chat_app/screen/profile/profile_screen.dart';
 import 'package:chat_app/screen/signin_or_signup/signin_or_signup_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:chat_app/main.dart'; // Để dùng MyApp.isDarkNotifier
+import 'package:chat_app/main.dart';
+
+import '../l10n/app_localization.dart'; // Để dùng MyApp.isDarkNotifier
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Drawer(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +35,7 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25.0),
                 child: ListTile(
                   title: Text(
-                    "H O M E",
+                    t.homeDrawer,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   leading: Icon(Icons.home),
@@ -50,7 +53,7 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25.0),
                 child: ListTile(
                   title: Text(
-                    "P E O P L E",
+                    t.peopleDrawer,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   leading: Icon(Icons.people),
@@ -68,7 +71,7 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25.0),
                 child: ListTile(
                   title: Text(
-                    "C A L L S",
+                    t.callsDrawer,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   leading: Icon(Icons.call),
@@ -86,7 +89,7 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25.0),
                 child: ListTile(
                   title: Text(
-                    "P R O F I L E",
+                    t.profileDrawer,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   leading: Icon(Icons.person),
@@ -106,7 +109,7 @@ class MyDrawer extends StatelessWidget {
             padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
             child: ListTile(
               title: Text(
-                "L O G O U T",
+                t.logout,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               leading: Icon(Icons.logout),

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 import '../../models/Chat.dart';
+import '../../utils/time_ago_format.dart';
+
 class ChatCard extends StatelessWidget {
   const ChatCard({super.key, required this.chat, required this.press});
 
   final Chat chat;
   final VoidCallback press;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -71,7 +74,7 @@ class ChatCard extends StatelessWidget {
                 ),
               ),
             ),
-            Opacity(opacity: 0.64, child: Text(chat.time)),
+            Opacity(opacity: 0.64, child: Text(formatTimeAgo(context, chat.time))),
           ],
         ),
       ),
