@@ -1,3 +1,4 @@
+import 'package:chat_app/components/drawer.dart';
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/screen/calls/calls_screen.dart';
 import 'package:chat_app/screen/people/people_screen.dart';
@@ -17,6 +18,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
+      drawer: MyDrawer(),
       body: Body(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -79,9 +81,16 @@ class _ChatsScreenState extends State<ChatsScreen> {
 
   AppBar buildAppBar() {
     return AppBar(
-      automaticallyImplyLeading: false,
       backgroundColor: kPrimaryColor,
       title: Text("Chats"),
+      leading: Builder(
+        builder: (context) => IconButton(
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+          icon: Icon(Icons.menu),
+        ),
+      ),
       actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
     );
   }
