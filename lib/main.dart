@@ -9,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  // 🌙 Dùng ValueNotifier để lưu trạng thái dark/light toàn app
+  // ValueNotifier để lưu trạng thái dark/light toàn app
   static final ValueNotifier<bool> isDarkNotifier = ValueNotifier(false);
 
   @override

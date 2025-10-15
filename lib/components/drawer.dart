@@ -1,3 +1,4 @@
+import 'package:chat_app/constants.dart';
 import 'package:chat_app/screen/calls/calls_screen.dart';
 import 'package:chat_app/screen/chats/chats_screen.dart';
 import 'package:chat_app/screen/people/people_screen.dart';
@@ -17,6 +18,7 @@ class MyDrawer extends StatelessWidget {
         children: [
           Column(
             children: [
+              Padding(padding: EdgeInsets.only(top: 25.0)),
               //logo
               Image.asset(
                 MediaQuery.of(context).platformBrightness == Brightness.light
@@ -24,6 +26,7 @@ class MyDrawer extends StatelessWidget {
                     : 'assets/images/Logo-DH-Phenikaa-V-Wh.webp',
                 height: 146,
               ),
+              SizedBox(height: kDefaultPadding * 2),
               //home
               Padding(
                 padding: const EdgeInsets.only(left: 25.0),
@@ -111,7 +114,9 @@ class MyDrawer extends StatelessWidget {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SigninOrSignupScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => SigninOrSignupScreen(),
+                  ),
                 );
               },
             ),
