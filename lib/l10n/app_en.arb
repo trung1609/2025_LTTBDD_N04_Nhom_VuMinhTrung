@@ -42,5 +42,19 @@
   "callBack": "Call back",
   "sendMessage": "Send message",
   "addContact": "Add new contact",
-  "delete": "Delete"
+  "delete": "Delete",
+  "addPeople": "Add People Nearby",
+  "addContacts": "Add from Contacts",
+  "cancel": "Cancel",
+  "newContact": "New contact",
+  "create": "Create",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "mobile": "mobile",
+  "addPhone": "add phone",
+  "online": "online",
+  "lastSeenRecently": "last seen recently",
+  "lastSeenMinutesAgo": "last seen {count} minutes ago",
+  "lastSeenHourAgo": "last seen {count} hour ago",
+  "lastSeenHoursAgo": "last seen {count} hours ago"
 }

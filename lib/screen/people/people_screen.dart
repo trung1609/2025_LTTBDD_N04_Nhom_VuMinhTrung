@@ -10,6 +10,27 @@ class PeopleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    String getTranslatedStatus(People people) {
+      if (people.isOnline) {
+        return t.online;
+      }
+
+      if (people.lastSeen != null) {
+        final now = DateTime.now();
+        final difference = now.difference(people.lastSeen!);
+
+        if (difference.inMinutes < 1) {
+          return t.lastSeenRecently;
+        } else if (difference.inHours < 1) {
+          return t.lastSeenMinutesAgo(difference.inMinutes);
+        } else if (difference.inHours == 1) {
+          return t.lastSeenHourAgo(1);
+        } else {
+          return t.lastSeenHoursAgo(difference.inHours);
+        }
+      }
+      return "";
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -38,8 +59,8 @@ class PeopleScreen extends StatelessWidget {
               Icons.location_on_outlined,
               color: kPrimaryColor,
             ),
-            title: const Text(
-              "Add People Nearby",
+            title: Text(
+              t.addPeople,
               style: TextStyle(color: kPrimaryColor),
             ),
             onTap: () {},
@@ -56,8 +77,8 @@ class PeopleScreen extends StatelessWidget {
               Icons.person_add_alt_outlined,
               color: kPrimaryColor,
             ),
-            title: const Text(
-              "Add from Contacts",
+            title: Text(
+              t.addContacts,
               style: TextStyle(color: kPrimaryColor),
             ),
             onTap: () {},
@@ -108,7 +129,7 @@ class PeopleScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                people.status,
+                                getTranslatedStatus(people),
                                 style: TextStyle(
                                   color: people.isOnline
                                       ? kPrimaryColor

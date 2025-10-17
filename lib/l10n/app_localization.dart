@@ -355,6 +355,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete'**
   String get delete;
+
+  /// No description provided for @addPeople.
+  ///
+  /// In en, this message translates to:
+  /// **'Add People Nearby'**
+  String get addPeople;
+
+  /// No description provided for @addContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Add from Contacts'**
+  String get addContacts;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @newContact.
+  ///
+  /// In en, this message translates to:
+  /// **'New contact'**
+  String get newContact;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// No description provided for @firstName.
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get firstName;
+
+  /// No description provided for @lastName.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get lastName;
+
+  /// No description provided for @mobile.
+  ///
+  /// In en, this message translates to:
+  /// **'mobile'**
+  String get mobile;
+
+  /// No description provided for @addPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'add phone'**
+  String get addPhone;
+
+  /// No description provided for @online.
+  ///
+  /// In en, this message translates to:
+  /// **'online'**
+  String get online;
+
+  /// No description provided for @lastSeenRecently.
+  ///
+  /// In en, this message translates to:
+  /// **'last seen recently'**
+  String get lastSeenRecently;
+
+  /// No description provided for @lastSeenMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'last seen {count} minutes ago'**
+  String lastSeenMinutesAgo(Object count);
+
+  /// No description provided for @lastSeenHourAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'last seen {count} hour ago'**
+  String lastSeenHourAgo(Object count);
+
+  /// No description provided for @lastSeenHoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'last seen {count} hours ago'**
+  String lastSeenHoursAgo(Object count);
 }
 
 class _AppLocalizationsDelegate

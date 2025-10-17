@@ -143,4 +143,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get delete => 'Delete';
+
+  @override
+  String get addPeople => 'Add People Nearby';
+
+  @override
+  String get addContacts => 'Add from Contacts';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get newContact => 'New contact';
+
+  @override
+  String get create => 'Create';
+
+  @override
+  String get firstName => 'First Name';
+
+  @override
+  String get lastName => 'Last Name';
+
+  @override
+  String get mobile => 'mobile';
+
+  @override
+  String get addPhone => 'add phone';
+
+  @override
+  String get online => 'online';
+
+  @override
+  String get lastSeenRecently => 'last seen recently';
+
+  @override
+  String lastSeenMinutesAgo(Object count) {
+    return 'last seen $count minutes ago';
+  }
+
+  @override
+  String lastSeenHourAgo(Object count) {
+    return 'last seen $count hour ago';
+  }
+
+  @override
+  String lastSeenHoursAgo(Object count) {
+    return 'last seen $count hours ago';
+  }
 }

@@ -1,12 +1,15 @@
+// lib/models/People.dart
+
 class People {
-  final String name, image, status;
+  final String name, image;
   final bool isOnline;
+  final DateTime? lastSeen;
 
   People({
     required this.name,
     required this.image,
-    required this.status,
     this.isOnline = false,
+    this.lastSeen,
   });
 }
 
@@ -14,67 +17,41 @@ List<People> peopleData = [
   People(
     name: "Esther Howard",
     image: 'assets/images/user_2.png',
-    status: 'online',
     isOnline: true,
   ),
   People(
     name: "Alexander Martin",
     image: 'assets/images/user.png',
-    status: 'last seen 10 minutes ago',
-    isOnline: false,
+    lastSeen: DateTime.now().subtract(const Duration(minutes: 10)),
   ),
   People(
     name: "Ralph Edwards",
     image: 'assets/images/user.png',
-    status: 'last seen 1 hour',
-    isOnline: false,
+    lastSeen: DateTime.now().subtract(const Duration(hours: 1)),
   ),
   People(
     name: "Jacob Jones",
     image: 'assets/images/user_4.png',
-    status: 'last seen 45 minutes ago',
-    isOnline: false,
+    lastSeen: DateTime.now().subtract(const Duration(minutes: 45)),
   ),
   People(
     name: "Esther Howard",
     image: 'assets/images/user_2.png',
-    status: 'online',
     isOnline: true,
   ),
   People(
     name: "Alexander Martin",
     image: 'assets/images/user.png',
-    status: 'online',
     isOnline: true,
   ),
   People(
     name: "Ralph Edwards",
     image: 'assets/images/user_3.png',
-    status: 'last seen recently',
-    isOnline: false,
+    lastSeen: DateTime.now().subtract(const Duration(minutes: 1)),
   ),
   People(
     name: "Jacob Jones",
     image: 'assets/images/user_4.png',
-    status: 'last seen 20 minutes ago',
-    isOnline: false,
-  ),
-  People(
-    name: "Alexander Martin",
-    image: 'assets/images/user.png',
-    status: 'online',
-    isOnline: true,
-  ),
-  People(
-    name: "Ralph Edwards",
-    image: 'assets/images/user_3.png',
-    status: 'last seen recently',
-    isOnline: false,
-  ),
-  People(
-    name: "Jacob Jones",
-    image: 'assets/images/user_4.png',
-    status: 'last seen 20 minutes ago',
-    isOnline: false,
+    lastSeen: DateTime.now().subtract(const Duration(minutes: 20)),
   ),
 ];

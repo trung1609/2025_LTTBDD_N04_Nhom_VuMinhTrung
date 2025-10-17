@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../l10n/app_localization.dart';
 
 class NewContactSheet extends StatefulWidget {
   const NewContactSheet({super.key});
@@ -45,6 +46,7 @@ class _NewContactSheetState extends State<NewContactSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Padding(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -65,12 +67,12 @@ class _NewContactSheetState extends State<NewContactSheet> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    "Cancel",
+                    t.cancel,
                     style: TextStyle(color: kPrimaryColor, fontSize: 16),
                   ),
                 ),
                 Text(
-                  "New contact",
+                  t.newContact,
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyMedium!.color,
                     fontSize: 16,
@@ -79,7 +81,7 @@ class _NewContactSheetState extends State<NewContactSheet> {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    "Create",
+                    t.create,
                     style: TextStyle(
                       color: _isButtonEnabled
                           ? kPrimaryColor
@@ -107,16 +109,32 @@ class _NewContactSheetState extends State<NewContactSheet> {
                       TextField(
                         controller: _firstNameController,
                         decoration: InputDecoration(
-                          hintText: "First Name",
+                          hintText: t.firstName,
                           border: InputBorder.none,
+                          suffixIcon: _firstNameController.text.isNotEmpty
+                              ? IconButton(
+                                  onPressed: () {
+                                    _firstNameController.clear();
+                                  },
+                                  icon: Icon(Icons.clear, size: 18),
+                                )
+                              : null,
                         ),
                       ),
                       Divider(height: 1, color: Theme.of(context).dividerColor),
                       TextField(
                         controller: _lastNameController,
                         decoration: InputDecoration(
-                          hintText: "Last Name",
+                          hintText: t.lastName,
                           border: InputBorder.none,
+                          suffixIcon: _lastNameController.text.isNotEmpty
+                              ? IconButton(
+                                  onPressed: () {
+                                    _lastNameController.clear();
+                                  },
+                                  icon: Icon(Icons.clear, size: 18),
+                                )
+                              : null,
                         ),
                       ),
                     ],
@@ -129,11 +147,12 @@ class _NewContactSheetState extends State<NewContactSheet> {
               child: Row(
                 children: [
                   const Icon(Icons.remove_circle, color: Colors.red, size: 28),
-                  const SizedBox(height: 12, width: 5,),
+                  const SizedBox(width: 5),
                   Text(
-                    "mobile",
+                    t.mobile,
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyMedium!.color,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   const SizedBox(
@@ -147,7 +166,15 @@ class _NewContactSheetState extends State<NewContactSheet> {
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Phone",
+                        hintText: t.phone,
+                        suffixIcon: _phoneController.text.isNotEmpty
+                            ? IconButton(
+                                onPressed: () {
+                                  _phoneController.clear();
+                                },
+                                icon: Icon(Icons.clear, size: 18),
+                              )
+                            : null,
                       ),
                     ),
                   ),
@@ -169,11 +196,12 @@ class _NewContactSheetState extends State<NewContactSheet> {
                       color: kPrimaryColor,
                       size: 28,
                     ),
-                    const SizedBox(height: 12, width: 5,),
+                    const SizedBox(width: 5),
                     Text(
-                      "add phone",
+                      t.addPhone,
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyMedium!.color,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -185,11 +213,10 @@ class _NewContactSheetState extends State<NewContactSheet> {
               padding: EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
             ),
             Divider(height: 1, color: Theme.of(context).dividerColor),
-            Padding(padding: EdgeInsets.only(bottom: kDefaultPadding * 25)),
+            SizedBox(height: kDefaultPadding * 3),
           ],
         ),
       ),
     );
-    ;
   }
 }

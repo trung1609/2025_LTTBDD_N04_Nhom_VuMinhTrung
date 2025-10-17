@@ -144,4 +144,52 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get delete => 'Xóa';
+
+  @override
+  String get addPeople => 'Thêm moi người gần đây';
+
+  @override
+  String get addContacts => 'Thêm liên hệ có sẵn';
+
+  @override
+  String get cancel => 'Hủy';
+
+  @override
+  String get newContact => 'Liên hệ mới';
+
+  @override
+  String get create => 'Tạo';
+
+  @override
+  String get firstName => 'Họ';
+
+  @override
+  String get lastName => 'Tên';
+
+  @override
+  String get mobile => 'Di động';
+
+  @override
+  String get addPhone => 'Thêm điện thoại mới';
+
+  @override
+  String get online => 'đang trực tuyến';
+
+  @override
+  String get lastSeenRecently => 'vừa mới truy cập';
+
+  @override
+  String lastSeenMinutesAgo(Object count) {
+    return 'truy cập $count phút trước';
+  }
+
+  @override
+  String lastSeenHourAgo(Object count) {
+    return 'truy cập $count giờ trước';
+  }
+
+  @override
+  String lastSeenHoursAgo(Object count) {
+    return 'truy cập $count giờ trước';
+  }
 }

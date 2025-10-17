@@ -42,5 +42,19 @@
   "callBack": "Gọi lại",
   "sendMessage": "Gửi tin nhắn",
   "addContact": "Thêm liên hệ mới",
-  "delete": "Xóa"
+  "delete": "Xóa",
+  "addPeople": "Thêm moi người gần đây",
+  "addContacts": "Thêm liên hệ có sẵn",
+  "cancel": "Hủy",
+  "newContact": "Liên hệ mới",
+  "create": "Tạo",
+  "firstName": "Họ",
+  "lastName": "Tên",
+  "mobile": "Di động",
+  "addPhone": "Thêm điện thoại mới",
+  "online": "đang trực tuyến",
+  "lastSeenRecently": "vừa mới truy cập",
+  "lastSeenMinutesAgo": "truy cập {count} phút trước",
+  "lastSeenHourAgo": "truy cập {count} giờ trước",
+  "lastSeenHoursAgo": "truy cập {count} giờ trước"
 }
