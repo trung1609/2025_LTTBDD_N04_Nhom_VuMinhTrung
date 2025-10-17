@@ -23,18 +23,6 @@ class _CallsScreenState extends State<CallsScreen> {
     final filteredCalls = selectedTab == "All"
         ? calls
         : calls.where((call) => call.type == "missed").toList();
-    String getTranslatedCallType(String type) {
-      switch (type) {
-        case 'outgoing':
-          return t.outgoing;
-        case 'incoming':
-          return t.incoming;
-        case 'missed':
-          return t.missedDetail;
-        default:
-          return type;
-      }
-    }
 
     return Scaffold(
       appBar: AppBar(
