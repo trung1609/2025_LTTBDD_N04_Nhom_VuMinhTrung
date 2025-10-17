@@ -100,7 +100,7 @@ class _NewContactSheetState extends State<NewContactSheet> {
                     style: TextStyle(fontSize: 28, color: Colors.grey),
                   ),
                 ),
-                const SizedBox(height: kDefaultPadding),
+                const SizedBox(height: kDefaultPadding, width: kDefaultPadding),
                 Expanded(
                   child: Column(
                     children: [
@@ -111,7 +111,7 @@ class _NewContactSheetState extends State<NewContactSheet> {
                           border: InputBorder.none,
                         ),
                       ),
-                      Divider(height: 1),
+                      Divider(height: 1, color: Theme.of(context).dividerColor),
                       TextField(
                         controller: _lastNameController,
                         decoration: InputDecoration(
@@ -125,29 +125,66 @@ class _NewContactSheetState extends State<NewContactSheet> {
               ],
             ),
             const SizedBox(height: kDefaultPadding),
-            Row(
-              children: [
-                const Icon(Icons.remove_circle, color: kPrimaryColor, size: 28),
-                const SizedBox(height: 12),
-                const Text("mobile"),
-                const SizedBox(height: 20),
-                Expanded(
-                  child: TextField(
-                    controller: _phoneController,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(border: InputBorder.none),
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  const Icon(Icons.remove_circle, color: Colors.red, size: 28),
+                  const SizedBox(height: 12, width: 5,),
+                  Text(
+                    "mobile",
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
+                    ),
                   ),
+                  const SizedBox(
+                    height: kDefaultPadding,
+                    width: kDefaultPadding / 2,
+                  ),
+                  VerticalDivider(width: 15, thickness: 1, color: Colors.grey),
+                  Expanded(
+                    child: TextField(
+                      controller: _phoneController,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Phone",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Divider(height: 1, color: Theme.of(context).dividerColor),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+            ),
+            InkWell(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.add_circle,
+                      color: kPrimaryColor,
+                      size: 28,
+                    ),
+                    const SizedBox(height: 12, width: 5,),
+                    Text(
+                      "add phone",
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyMedium!.color,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                  ],
                 ),
-              ],
+              ),
             ),
-            Row(
-              children: [
-                const Icon(Icons.add_circle, color: kPrimaryColor, size: 28),
-                const SizedBox(height: 12),
-                const Text("add phone"),
-                const SizedBox(height: 16),
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
             ),
+            Divider(height: 1, color: Theme.of(context).dividerColor),
             Padding(padding: EdgeInsets.only(bottom: kDefaultPadding * 25)),
           ],
         ),
