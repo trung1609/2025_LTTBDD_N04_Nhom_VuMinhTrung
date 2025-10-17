@@ -116,4 +116,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get comeBack => 'Go back';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get missed => 'Missed';
+
+  @override
+  String get outgoing => 'outgoing';
+
+  @override
+  String get incoming => 'incoming';
+
+  @override
+  String get missedDetail => 'missed';
 }

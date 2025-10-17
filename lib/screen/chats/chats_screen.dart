@@ -45,7 +45,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
         ),
       ),
       actions: [
-        // 🌗 Nút bật/tắt theme
+        // Nút bật/tắt theme
         IconButton(
           icon: Icon(
             MyApp.isDarkNotifier.value ? Icons.light_mode : Icons.dark_mode,
@@ -54,6 +54,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
             MyApp.isDarkNotifier.value = !MyApp.isDarkNotifier.value;
           },
         ),
+        //Nut switch language
         IconButton(
           icon: Icon(Icons.language),
           tooltip: t.changeLanguage,

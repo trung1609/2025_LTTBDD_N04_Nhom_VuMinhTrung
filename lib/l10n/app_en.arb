@@ -33,5 +33,10 @@
   "minutesAgo": "{count}m ago",
   "hoursAgo": "about {count}h ago",
   "daysAgo": "{count}d ago",
-  "comeBack": "Go back"
+  "comeBack": "Go back",
+  "all": "All",
+  "missed": "Missed",
+  "outgoing": "outgoing",
+  "incoming": "incoming",
+  "missedDetail": "missed"
 }

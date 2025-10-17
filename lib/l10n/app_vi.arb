@@ -33,5 +33,10 @@
   "minutesAgo": "{count} phút trước",
   "hoursAgo": "khoảng {count} giờ trước",
   "daysAgo": "{count} ngày trước",
-  "comeBack": "Quay lại"
+  "comeBack": "Quay lại",
+  "all": "Tất cả",
+  "missed": "Bị lỡ",
+  "outgoing": "cuộc gọi đi",
+  "incoming": "cuộc gọi đến",
+  "missedDetail": "cuộc gọi bị lỡ"
 }

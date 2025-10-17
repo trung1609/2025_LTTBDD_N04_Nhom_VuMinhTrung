@@ -117,4 +117,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get comeBack => 'Quay lại';
+
+  @override
+  String get all => 'Tất cả';
+
+  @override
+  String get missed => 'Bị lỡ';
+
+  @override
+  String get outgoing => 'cuộc gọi đi';
+
+  @override
+  String get incoming => 'cuộc gọi đến';
+
+  @override
+  String get missedDetail => 'cuộc gọi bị lỡ';
 }

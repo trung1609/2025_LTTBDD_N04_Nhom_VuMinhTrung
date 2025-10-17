@@ -301,6 +301,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go back'**
   String get comeBack;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @missed.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get missed;
+
+  /// No description provided for @outgoing.
+  ///
+  /// In en, this message translates to:
+  /// **'outgoing'**
+  String get outgoing;
+
+  /// No description provided for @incoming.
+  ///
+  /// In en, this message translates to:
+  /// **'incoming'**
+  String get incoming;
+
+  /// No description provided for @missedDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'missed'**
+  String get missedDetail;
 }
 
 class _AppLocalizationsDelegate

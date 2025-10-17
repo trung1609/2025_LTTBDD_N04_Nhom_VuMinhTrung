@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/models/Calls.dart';
+import 'package:chat_app/screen/calls/components/body.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/app_localization.dart';
@@ -16,53 +19,38 @@ class _CallsScreenState extends State<CallsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     final filteredCalls = selectedTab == "All"
         ? calls
         : calls.where((call) => call.type == "missed").toList();
-    final t = AppLocalizations.of(context)!;
+    String getTranslatedCallType(String type) {
+      switch (type) {
+        case 'outgoing':
+          return t.outgoing;
+        case 'incoming':
+          return t.incoming;
+        case 'missed':
+          return t.missedDetail;
+        default:
+          return type;
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kPrimaryColor,
         title: Text(t.calls),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add_call))],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: ChoiceChip(
-                    label: const Text("All"),
-                    selected: selectedTab == "All",
-                    onSelected: (_) => setState(() {
-                      selectedTab = "All";
-                    }),
-                    labelStyle: TextStyle(
-                      color: selectedTab == "All" ? Colors.white : Colors.black
-                    ),
-                    selectedColor: kPrimaryColor,
-                  ),
-                ),
-                const SizedBox(height: kDefaultPadding,),
-                Expanded(
-                  child: ChoiceChip(
-                    label: const Text("Missed"),
-                    selected: selectedTab == "Missed",
-                    onSelected: (_) => setState(() {
-                      selectedTab = "Missed";
-                    }),
-                    labelStyle: TextStyle(
-                        color: selectedTab == "Missed" ? Colors.white : Colors.black
-                    ),
-                    selectedColor: kPrimaryColor,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+      body: Body(
+        selectedTab: selectedTab,
+        filteredCalls: filteredCalls,
+        onTabSelected: (tab){
+          setState(() {
+            selectedTab = tab;
+          });
+        }
+      )
     );
   }
 }

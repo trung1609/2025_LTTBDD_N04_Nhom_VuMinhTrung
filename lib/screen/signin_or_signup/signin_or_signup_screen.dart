@@ -50,7 +50,7 @@ class SigninOrSignupScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => WelcomeScreen()),
                   );
                 },
-                child: Text(t.comeBack,style: TextStyle(fontSize: 16.0),),
+                child: Text(t.comeBack, style: TextStyle(fontSize: 16.0)),
               ),
             ],
           ),
