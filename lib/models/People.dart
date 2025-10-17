@@ -19,7 +19,7 @@ List<People> peopleData = [
   ),
   People(
     name: "Alexander Martin",
-    image: 'assets/images/user_4.png',
+    image: 'assets/images/user.png',
     status: 'last seen 10 minutes ago',
     isOnline: false,
   ),
@@ -31,7 +31,7 @@ List<People> peopleData = [
   ),
   People(
     name: "Jacob Jones",
-    image: 'assets/images/user.png',
+    image: 'assets/images/user_4.png',
     status: 'last seen 45 minutes ago',
     isOnline: false,
   ),
@@ -43,7 +43,7 @@ List<People> peopleData = [
   ),
   People(
     name: "Alexander Martin",
-    image: 'assets/images/user_4.png',
+    image: 'assets/images/user.png',
     status: 'online',
     isOnline: true,
   ),
@@ -55,7 +55,25 @@ List<People> peopleData = [
   ),
   People(
     name: "Jacob Jones",
+    image: 'assets/images/user_4.png',
+    status: 'last seen 20 minutes ago',
+    isOnline: false,
+  ),
+  People(
+    name: "Alexander Martin",
     image: 'assets/images/user.png',
+    status: 'online',
+    isOnline: true,
+  ),
+  People(
+    name: "Ralph Edwards",
+    image: 'assets/images/user_3.png',
+    status: 'last seen recently',
+    isOnline: false,
+  ),
+  People(
+    name: "Jacob Jones",
+    image: 'assets/images/user_4.png',
     status: 'last seen 20 minutes ago',
     isOnline: false,
   ),

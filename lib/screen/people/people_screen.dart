@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/models/People.dart';
-import 'package:flutter/material.dart';
-
 import '../../l10n/app_localization.dart';
+import 'components/new_contact.dart';
 
 class PeopleScreen extends StatelessWidget {
   const PeopleScreen({super.key});
@@ -10,24 +10,37 @@ class PeopleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: Text(t.people),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+        actions: [
+          IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                ),
+                context: context,
+                builder: (BuildContext context) => const NewContactSheet(),
+              );
+            },
+            icon: const Icon(Icons.add),
+          ),
+        ],
       ),
       body: Column(
         children: [
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.location_on_outlined,
-              color: Theme.of(context).iconTheme.color,
+              color: kPrimaryColor,
             ),
-            title: Text(
+            title: const Text(
               "Add People Nearby",
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyMedium!.color,
-              ),
+              style: TextStyle(color: kPrimaryColor),
             ),
             onTap: () {},
           ),
@@ -37,16 +50,15 @@ class PeopleScreen extends StatelessWidget {
             endIndent: 5,
             color: Theme.of(context).dividerColor,
           ),
+
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.person_add_alt_outlined,
-              color: Theme.of(context).iconTheme.color,
+              color: kPrimaryColor,
             ),
-            title: Text(
-              "Add People Nearby",
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyMedium!.color,
-              ),
+            title: const Text(
+              "Add from Contacts",
+              style: TextStyle(color: kPrimaryColor),
             ),
             onTap: () {},
           ),
@@ -56,13 +68,15 @@ class PeopleScreen extends StatelessWidget {
             endIndent: 5,
             color: Theme.of(context).dividerColor,
           ),
+
           Expanded(
             child: ListView.builder(
               itemCount: peopleData.length,
               itemBuilder: (context, index) {
                 final people = peopleData[index];
+
                 return Padding(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: kDefaultPadding / 1.75,
                     vertical: kDefaultPadding * 0.75,
                   ),
@@ -78,7 +92,7 @@ class PeopleScreen extends StatelessWidget {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: kDefaultPadding,
                           ),
                           child: Column(
@@ -103,7 +117,6 @@ class PeopleScreen extends StatelessWidget {
                                         ).textTheme.bodyMedium!.color,
                                 ),
                               ),
-                              Divider(thickness: 1, indent: 0, color: Theme.of(context).dividerColor,),
                             ],
                           ),
                         ),
@@ -119,3 +132,5 @@ class PeopleScreen extends StatelessWidget {
     );
   }
 }
+
+
