@@ -26,97 +26,112 @@ class ProfileScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: 150,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(kDefaultPadding * 2),
-                bottomRight: Radius.circular(kDefaultPadding * 2),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  maxRadius: 50.0,
-                  minRadius: 50.0,
-                  backgroundColor: kSecondaryColor,
-                  backgroundImage: AssetImage('assets/images/user_2.png'),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.only(bottom: kDefaultPadding),
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: kPrimaryColor,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(kDefaultPadding * 2),
+                    bottomRight: Radius.circular(kDefaultPadding * 2),
+                  ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                padding: EdgeInsets.symmetric(
+                  vertical: kDefaultPadding,
+                  horizontal: kDefaultPadding,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      t.nameProfile,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium!.copyWith(fontSize: 18),
+                    CircleAvatar(
+                      maxRadius: 50.0,
+                      minRadius: 50.0,
+                      backgroundColor: kSecondaryColor,
+                      backgroundImage: AssetImage('assets/images/user_2.png'),
                     ),
-                    Text(
-                      t.classProfile,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium!.copyWith(fontSize: 14.0),
-                    ),
-                    Text(
-                      t.member,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium!.copyWith(fontSize: 14.0),
+                    SizedBox(height: kDefaultPadding),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            t.nameProfile,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyMedium!.copyWith(fontSize: 18),
+                          ),
+                          Text(
+                            t.classProfile,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyMedium!.copyWith(fontSize: 14.0),
+                          ),
+                          Text(
+                            t.member,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyMedium!.copyWith(fontSize: 14.0),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          SizedBox(height: kDefaultPadding),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ProfileDetailRow(title: t.studentCode, value: "23010361"),
-              ProfileDetailRow(title: t.phone, value: "0868920271"),
-            ],
-          ),
-          SizedBox(height: kDefaultPadding),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ProfileDetailColumn(
-                title: "Email",
-                value: "23010361@st.phenikaa-uni.edu.vn",
               ),
-            ],
-          ),
-          SizedBox(height: kDefaultPadding),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              ListTile(
-                title: Text(
-                  t.aboutMe,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w600,
+              SizedBox(height: kDefaultPadding),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ProfileDetailRow(
+                        title: t.studentCode,
+                        value: "23010361",
+                      ),
+                    ),
+                    Expanded(
+                      child: ProfileDetailRow(
+                        title: t.phone,
+                        value: "0868920271",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: kDefaultPadding),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+                child: ProfileDetailColumn(
+                  title: "Email",
+                  value: "23010361@st.phenikaa-uni.edu.vn",
+                ),
+              ),
+              SizedBox(height: kDefaultPadding),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+                child: ListTile(
+                  title: Text(
+                    t.aboutMe,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: Text(
+                    t.detailAboutMe,
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium!.copyWith(fontSize: 15.0),
                   ),
                 ),
-                subtitle: Text(
-                  t.detailAboutMe,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyMedium!.copyWith(fontSize: 15.0),
-                ),
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -204,15 +219,13 @@ class ProfileDetailColumn extends StatelessWidget {
               SizedBox(height: kDefaultPadding / 2),
               Text(
                 value,
+                textAlign: TextAlign.center,
+                softWrap: true,
+                overflow: TextOverflow.visible,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
                 ),
-              ),
-              SizedBox(height: kDefaultPadding / 2),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 1.1,
-                child: Divider(thickness: 0.7),
               ),
             ],
           ),
