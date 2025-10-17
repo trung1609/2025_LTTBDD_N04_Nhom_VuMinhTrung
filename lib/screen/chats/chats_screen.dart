@@ -1,9 +1,16 @@
-import 'package:chat_app/constants.dart';
-import 'package:chat_app/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app/constants.dart';
+import 'package:chat_app/components/drawer.dart';
+import 'package:chat_app/screen/calls/calls_screen.dart';
+import 'package:chat_app/screen/people/people_screen.dart';
+import 'package:chat_app/screen/profile/profile_screen.dart';
+import 'package:chat_app/main.dart';
+import '../../l10n/app_localization.dart';
 import 'components/body.dart';
 
 class ChatsScreen extends StatefulWidget {
+  const ChatsScreen({super.key});
+
   @override
   State<ChatsScreen> createState() => _ChatsScreenState();
 }
@@ -15,17 +22,56 @@ class _ChatsScreenState extends State<ChatsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Body(),
+      drawer: const MyDrawer(),
+      body: const Body(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: kPrimaryColor,
-        child: Icon(Icons.person_add_alt_1, color: Colors.white),
+        child: const Icon(Icons.person_add_alt_1, color: Colors.white),
       ),
       bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
 
+  AppBar buildAppBar() {
+    final t = AppLocalizations.of(context)!;
+    return AppBar(
+      backgroundColor: kPrimaryColor,
+      title: Text(t.chats),
+      leading: Builder(
+        builder: (context) => IconButton(
+          onPressed: () => Scaffold.of(context).openDrawer(),
+          icon: const Icon(Icons.menu),
+        ),
+      ),
+      actions: [
+        // 🌗 Nút bật/tắt theme
+        IconButton(
+          icon: Icon(
+            MyApp.isDarkNotifier.value ? Icons.light_mode : Icons.dark_mode,
+          ),
+          onPressed: () {
+            MyApp.isDarkNotifier.value = !MyApp.isDarkNotifier.value;
+          },
+        ),
+        IconButton(
+          icon: Icon(Icons.language),
+          tooltip: t.changeLanguage,
+          onPressed: () {
+            if (MyApp.localeNotifier.value.languageCode == 'en') {
+              MyApp.localeNotifier.value = const Locale('vi');
+            } else {
+              MyApp.localeNotifier.value = const Locale('en');
+            }
+          },
+        ),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+      ],
+    );
+  }
+
   BottomNavigationBar buildBottomNavigationBar() {
+    final t = AppLocalizations.of(context)!;
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: _selectedIndex,
@@ -35,31 +81,43 @@ class _ChatsScreenState extends State<ChatsScreen> {
         });
       },
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.messenger), label: "Chats"),
-        BottomNavigationBarItem(icon: Icon(Icons.people), label: "People"),
-        BottomNavigationBarItem(icon: Icon(Icons.call), label: "Calls"),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.chat_bubble),
+          label: t.chats,
+        ),
         BottomNavigationBarItem(
           icon: IconButton(
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ProfileScreen()),
+              MaterialPageRoute(builder: (context) => const PeopleScreen()),
             ),
-            icon: CircleAvatar(
+            icon: const Icon(Icons.people),
+          ),
+          label: t.people,
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CallsScreen()),
+            ),
+            icon: const Icon(Icons.call),
+          ),
+          label: t.calls,
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfileScreen()),
+            ),
+            icon: const CircleAvatar(
               backgroundImage: AssetImage('assets/images/user_2.png'),
             ),
           ),
-          label: "Profile",
+          label: t.profile,
         ),
       ],
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: kPrimaryColor,
-      title: Text("Chats"),
-      actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
     );
   }
 }

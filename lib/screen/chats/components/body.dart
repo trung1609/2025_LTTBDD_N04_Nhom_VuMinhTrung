@@ -4,6 +4,7 @@ import 'package:chat_app/models/Chat.dart';
 import 'package:chat_app/screen/messages/messages_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localization.dart';
 import '../chat_card.dart';
 
 class Body extends StatelessWidget {
@@ -11,14 +12,15 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Column(
       children: [
         Container(
           color: kPrimaryColor,
           child: Row(
             children: [
-              FillOutlineButton(press: () {}, text: "Recent Message"),
-              FillOutlineButton(press: () {}, text: "Active", isFilled: false),
+              FillOutlineButton(press: () {}, text: t.recentMessage),
+              FillOutlineButton(press: () {}, text: t.active, isFilled: false),
             ],
           ),
         ),

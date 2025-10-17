@@ -58,8 +58,8 @@ class MessageStatusDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color dotColor(MessageStatus status){
-      switch(status){
+    Color dotColor(MessageStatus status) {
+      switch (status) {
         case MessageStatus.notSent:
           return kErrorColor;
           break;
@@ -73,11 +73,15 @@ class MessageStatusDot extends StatelessWidget {
           return Colors.transparent;
       }
     }
+
     return Container(
       margin: EdgeInsets.only(left: kDefaultPadding / 2),
       height: 12,
       width: 12,
-      decoration: BoxDecoration(color: dotColor(status), shape: BoxShape.circle),
+      decoration: BoxDecoration(
+        color: dotColor(status),
+        shape: BoxShape.circle,
+      ),
       child: Icon(
         status == MessageStatus.notSent ? Icons.close : Icons.done,
         size: 8,

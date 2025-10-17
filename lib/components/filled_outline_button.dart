@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import '../l10n/app_localization.dart';
 
 class FillOutlineButton extends StatelessWidget {
   const FillOutlineButton({
@@ -16,6 +17,7 @@ class FillOutlineButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return MaterialButton(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
