@@ -177,21 +177,21 @@ class Body extends StatelessWidget {
                                         const SizedBox(height: 12),
                                         ListTile(
                                           leading: Icon(Icons.call),
-                                          title: Text("Call back"),
+                                          title: Text(t.callBack),
                                           onTap: () {
                                             Navigator.pop(context);
                                           },
                                         ),
                                         ListTile(
                                           leading: Icon(Icons.message),
-                                          title: Text("Send message"),
+                                          title: Text(t.sendMessage),
                                           onTap: () {
                                             Navigator.pop(context);
                                           },
                                         ),
                                         ListTile(
                                           leading: Icon(Icons.add_call),
-                                          title: Text("Add new contact "),
+                                          title: Text(t.addContact),
                                           onTap: () {
                                             Navigator.pop(context);
                                           },
@@ -199,7 +199,7 @@ class Body extends StatelessWidget {
                                         const Divider(),
                                         ListTile(
                                           leading: Icon(Icons.delete),
-                                          title: Text("Delete"),
+                                          title: Text(t.delete),
                                           onTap: () {
                                             Navigator.pop(context);
                                           },

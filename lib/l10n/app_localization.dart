@@ -269,7 +269,7 @@ abstract class AppLocalizations {
   /// No description provided for @detailAboutMe.
   ///
   /// In en, this message translates to:
-  /// **'This Flutter project is a modern messaging application with a clean and friendly interface.\nIt includes user authentication with Sign in and Sign up screens.\nA welcome page introduces users to the app\'s purpose.\nThe chat list screen displays recent and active conversations.\nUsers can send text, voice messages, images, and videos.\nThe chat screen supports message status indicators and media previews.\nAll UI components are fully responsive and visually consistent.\nThis entire project was developed by myself.'**
+  /// **'This Flutter project is a modern messaging application with a clean and friendly interface.\nIt includes user authentication with Sign in and Sign up screens.\nA welcome page introduces users to the app\'s purpose.\nThe chat list screen displays recent and active conversations.\nUsers can send text, voice messages, images, and videos.\nThe application also allows users to track call logs and a few other functions.\nAll UI components are fully responsive and visually consistent.\nThis entire project was developed by myself.'**
   String get detailAboutMe;
 
   /// No description provided for @justNow.
@@ -331,6 +331,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'missed'**
   String get missedDetail;
+
+  /// No description provided for @callBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Call back'**
+  String get callBack;
+
+  /// No description provided for @sendMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Send message'**
+  String get sendMessage;
+
+  /// No description provided for @addContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new contact'**
+  String get addContact;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
 }
 
 class _AppLocalizationsDelegate

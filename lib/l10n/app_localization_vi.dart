@@ -95,7 +95,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get detailAboutMe =>
-      'Đây là một dự án Flutter về ứng dụng nhắn tin hiện đại với giao diện tinh gọn và thân thiện.\nỨng dụng bao gồm chức năng xác thực người dùng với các màn hình Đăng nhập và Đăng ký.\nTrang chào mừng giới thiệu cho người dùng về mục đích của ứng dụng.\nMàn hình danh sách trò chuyện hiển thị các cuộc hội thoại gần đây và đang hoạt động.\nNgười dùng có thể gửi tin nhắn văn bản, tin nhắn thoại, hình ảnh và video.\nMàn hình trò chuyện hỗ trợ chỉ báo trạng thái tin nhắn và xem trước các tệp đa phương tiện.\nTất cả các thành phần giao diện đều có độ tương thích cao và được thiết kế đồng nhất.\nToàn bộ dự án này do chính tôi phát triển.';
+      'Đây là một dự án Flutter về ứng dụng nhắn tin hiện đại với giao diện tinh gọn và thân thiện.\nỨng dụng bao gồm chức năng xác thực người dùng với các màn hình Đăng nhập và Đăng ký.\nTrang chào mừng giới thiệu cho người dùng về mục đích của ứng dụng.\nMàn hình danh sách trò chuyện hiển thị các cuộc hội thoại gần đây và đang hoạt động.\nNgười dùng có thể gửi tin nhắn văn bản, tin nhắn thoại, hình ảnh và video.\nỨng dụng còn cho phép người dùng theo dõi được nhật ký cuộc gọi và 1 vài chức năng khác\nTất cả các thành phần giao diện đều có độ tương thích cao và được thiết kế đồng nhất.\nToàn bộ dự án này do chính tôi phát triển.';
 
   @override
   String get justNow => 'Vừa xong';
@@ -132,4 +132,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get missedDetail => 'cuộc gọi bị lỡ';
+
+  @override
+  String get callBack => 'Gọi lại';
+
+  @override
+  String get sendMessage => 'Gửi tin nhắn';
+
+  @override
+  String get addContact => 'Thêm liên hệ mới';
+
+  @override
+  String get delete => 'Xóa';
 }

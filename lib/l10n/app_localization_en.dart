@@ -94,7 +94,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get detailAboutMe =>
-      'This Flutter project is a modern messaging application with a clean and friendly interface.\nIt includes user authentication with Sign in and Sign up screens.\nA welcome page introduces users to the app\'s purpose.\nThe chat list screen displays recent and active conversations.\nUsers can send text, voice messages, images, and videos.\nThe chat screen supports message status indicators and media previews.\nAll UI components are fully responsive and visually consistent.\nThis entire project was developed by myself.';
+      'This Flutter project is a modern messaging application with a clean and friendly interface.\nIt includes user authentication with Sign in and Sign up screens.\nA welcome page introduces users to the app\'s purpose.\nThe chat list screen displays recent and active conversations.\nUsers can send text, voice messages, images, and videos.\nThe application also allows users to track call logs and a few other functions.\nAll UI components are fully responsive and visually consistent.\nThis entire project was developed by myself.';
 
   @override
   String get justNow => 'Just now';
@@ -131,4 +131,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get missedDetail => 'missed';
+
+  @override
+  String get callBack => 'Call back';
+
+  @override
+  String get sendMessage => 'Send message';
+
+  @override
+  String get addContact => 'Add new contact';
+
+  @override
+  String get delete => 'Delete';
 }
