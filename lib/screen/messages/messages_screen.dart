@@ -19,7 +19,7 @@ class MessagesScreen extends StatelessWidget {
       titleSpacing: 0,
       title: Row(
         children: [
-          CircleAvatar(backgroundImage: AssetImage('assets/images/user_2.png')),
+          CircleAvatar(backgroundImage: AssetImage('assets/images/avatar.jpg')),
           SizedBox(width: kDefaultPadding * 0.5),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

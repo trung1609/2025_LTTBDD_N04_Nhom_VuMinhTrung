@@ -15,6 +15,11 @@ class People {
 
 List<People> peopleData = [
   People(
+    name: "Trung",
+    image: 'assets/images/avatar.jpg',
+    isOnline: true,
+  ),
+  People(
     name: "Esther Howard",
     image: 'assets/images/user_2.png',
     isOnline: true,

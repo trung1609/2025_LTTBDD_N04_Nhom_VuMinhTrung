@@ -14,6 +14,13 @@ class Chat {
 
 List chatsData = [
   Chat(
+    name: "Trung",
+    lastMessage: "Hello my friends! I am...",
+    image: "assets/images/avatar.jpg",
+    time: DateTime.now().subtract(const Duration(minutes: 8)),
+    isActive: true,
+  ),
+  Chat(
     name: "Jenny Wilson",
     lastMessage: "Hope you are doing well...",
     image: "assets/images/user.png",

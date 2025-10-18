@@ -1,4 +1,6 @@
 import 'package:chat_app/components/primary_button.dart';
+import 'package:chat_app/screen/auth/login_screen.dart';
+import 'package:chat_app/screen/auth/sign_up.dart';
 import 'package:chat_app/screen/chats/chats_screen.dart';
 import 'package:chat_app/screen/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,7 @@ class SigninOrSignupScreen extends StatelessWidget {
                 press: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ChatsScreen()),
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
                   );
                 },
               ),
@@ -40,7 +42,12 @@ class SigninOrSignupScreen extends StatelessWidget {
               PrimaryButton(
                 color: Theme.of(context).colorScheme.secondary,
                 text: t.signup,
-                press: () {},
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUp()),
+                  );
+                },
               ),
               Spacer(flex: 2),
               ElevatedButton(

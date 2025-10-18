@@ -50,9 +50,9 @@ class ProfileScreen extends StatelessWidget {
                       maxRadius: 50.0,
                       minRadius: 50.0,
                       backgroundColor: kSecondaryColor,
-                      backgroundImage: AssetImage('assets/images/user_2.png'),
+                      backgroundImage: AssetImage('assets/images/avatar.jpg'),
                     ),
-                    SizedBox(height: kDefaultPadding),
+                    SizedBox(width: kDefaultPadding,),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

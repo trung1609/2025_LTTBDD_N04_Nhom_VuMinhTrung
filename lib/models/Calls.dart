@@ -13,6 +13,12 @@ class Calls {
 
 List<Calls> calls = [
   Calls(
+    name: "Trung",
+    image: 'assets/images/avatar.jpg',
+    date: '16/09/25',
+    type: "missed",
+  ),
+  Calls(
     name: "Jenny Wilson",
     image: 'assets/images/user.png',
     date: '10/12/24',

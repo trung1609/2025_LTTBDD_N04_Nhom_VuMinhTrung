@@ -113,7 +113,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
               MaterialPageRoute(builder: (context) => const ProfileScreen()),
             ),
             icon: const CircleAvatar(
-              backgroundImage: AssetImage('assets/images/user_2.png'),
+              backgroundImage: AssetImage('assets/images/avatar.jpg'),
             ),
           ),
           label: t.profile,
