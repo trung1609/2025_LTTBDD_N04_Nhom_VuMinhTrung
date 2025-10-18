@@ -12,28 +12,42 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-
   final _emailController = TextEditingController();
   final _auth = FirebaseAuth.instance;
   bool _isLoading = false;
 
+  String? _validateInput(String email, AppLocalizations t) {
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if (!emailRegex.hasMatch(email)) {
+      return t.emailInvalid;
+    }
+  }
+
   void _resetPassword() async {
+    final email = _emailController.text.trim();
     final t = AppLocalizations.of(context)!;
+    final validationError = _validateInput(email, t);
+    if (validationError != null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(validationError)));
+      return;
+    }
     setState(() {
       _isLoading = true;
     });
     try {
       await _auth.sendPasswordResetEmail(email: _emailController.text.trim());
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(t.sendResetEmail)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.sendResetEmail)));
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? t.errorSendPassword)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.message ?? t.errorSendPassword)));
     } finally {
       if (mounted) {
         setState(() {
@@ -60,7 +74,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 border: OutlineInputBorder(),
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 10),
             _isLoading
                 ? CircularProgressIndicator()
                 : ElevatedButton(
