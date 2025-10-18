@@ -1,5 +1,7 @@
 import 'package:chat_app/constants.dart';
+import 'package:chat_app/screen/auth/forgot_password.dart';
 import 'package:chat_app/screen/auth/sign_up.dart';
+import 'package:chat_app/screen/auth/verify_email.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:chat_app/screen/chats/chats_screen.dart';
@@ -25,10 +27,22 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = true;
     });
     try {
-      await _auth.signInWithEmailAndPassword(
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+      User? user = userCredential.user;
+      if (user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => VerifyEmail()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => ChatsScreen()),
+        );
+      }
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text("Signin Successful")));
@@ -55,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: Text(t.signin)),
+      appBar: AppBar(centerTitle: true, title: Text(t.signin)),
       body: Padding(
         padding: EdgeInsets.all(kDefaultPadding),
         child: Column(
@@ -89,6 +103,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               obscureText: !_isPasswordVisible,
+            ),
+            Align(
+              alignment: AlignmentGeometry.centerRight,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ForgotPassword()),
+                  );
+                },
+                child: Text("Forgot Password?"),
+              ),
             ),
             const SizedBox(height: kDefaultPadding),
             _isLoading

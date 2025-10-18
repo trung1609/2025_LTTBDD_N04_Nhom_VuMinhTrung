@@ -4,6 +4,7 @@ import 'package:chat_app/screen/chats/chats_screen.dart';
 import 'package:chat_app/screen/people/people_screen.dart';
 import 'package:chat_app/screen/profile/profile_screen.dart';
 import 'package:chat_app/screen/signin_or_signup/signin_or_signup_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/main.dart';
 
@@ -14,6 +15,14 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void _logout(BuildContext context) async {
+      await FirebaseAuth.instance.signOut();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => SigninOrSignupScreen()),
+      );
+    }
+
     final t = AppLocalizations.of(context)!;
     return Drawer(
       child: Column(

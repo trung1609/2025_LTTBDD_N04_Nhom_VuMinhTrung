@@ -1,5 +1,6 @@
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/screen/auth/login_screen.dart';
+import 'package:chat_app/screen/auth/verify_email.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:chat_app/screen/chats/chats_screen.dart';
@@ -25,23 +26,32 @@ class _SignUpState extends State<SignUp> {
       _isLoading = true;
     });
     try {
-      await _auth.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
+      UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim(),
+          );
       if (!mounted) return;
-      ScaffoldMessenger.of(
+      User? user = userCredential.user;
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Verification email sent! Please check your email"),
+        ),
+      );
+      Navigator.pushReplacement(
         context,
-      ).showSnackBar(SnackBar(content: Text("Signup Successfull!")));
-      goHome(context);
+        MaterialPageRoute(builder: (context) => VerifyEmail()),
+      );
     } on FirebaseAuthException catch (e) {
-      print('>>> LỖI FIREBASE: ${e.code}');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? "Something went wrong")),
+        SnackBar(content: Text(e.message ?? "Sign failed")),
       );
     } finally {
-      if (mounted){
+      if (mounted) {
         setState(() {
           _isLoading = false;
         });
@@ -54,7 +64,7 @@ class _SignUpState extends State<SignUp> {
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => const ChatsScreen()),
-          (route) => false, // (route) => false có nghĩa là xóa hết các route cũ
+      (route) => false, // (route) => false có nghĩa là xóa hết các route cũ
     );
   }
 
