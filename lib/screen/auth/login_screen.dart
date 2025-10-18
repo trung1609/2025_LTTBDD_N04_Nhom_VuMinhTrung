@@ -2,11 +2,13 @@ import 'package:chat_app/constants.dart';
 import 'package:chat_app/screen/auth/forgot_password.dart';
 import 'package:chat_app/screen/auth/sign_up.dart';
 import 'package:chat_app/screen/auth/verify_email.dart';
+import 'package:chat_app/screen/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:chat_app/screen/chats/chats_screen.dart';
 
 import '../../l10n/app_localization.dart';
+import 'auth_wrapper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,39 +24,58 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
   bool _isPasswordVisible = false;
 
+  String? _validateLoginInput(String email, String password) {
+    if (email.isEmpty || password.isEmpty) {
+      return "Please enter both email and password";
+    }
+    return null;
+  }
+
   void _signIn() async {
+    final t = AppLocalizations.of(context)!;
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.fillAllFields)));
+      return;
+    }
+
     setState(() {
       _isLoading = true;
     });
+
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const AuthWrapper()),
       );
-      User? user = userCredential.user;
-      if (user != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => VerifyEmail()),
-        );
-      } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => ChatsScreen()),
-        );
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      String errorMessage;
+      switch (e.code) {
+        case 'user-not-found':
+          errorMessage = t.userNotFound;
+          break;
+        case 'wrong-password':
+          errorMessage = t.wrongPassword;
+          break;
+        default:
+          errorMessage = t.loginFailed;
       }
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text("Signin Successful")));
-      goHome(context);
-    } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? "Something went wrong")),
-      );
+      ).showSnackBar(SnackBar(content: Text(errorMessage)));
     } finally {
-      setState(() {
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 
@@ -75,6 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/images/logo_phenikaa_dark.jpg', height: 146),
+            const SizedBox(height: kDefaultPadding),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
@@ -87,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
             TextField(
               controller: _passwordController,
               decoration: InputDecoration(
-                labelText: "Password",
+                labelText: t.password,
                 border: OutlineInputBorder(),
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -113,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     MaterialPageRoute(builder: (context) => ForgotPassword()),
                   );
                 },
-                child: Text("Forgot Password?"),
+                child: Text(t.forgotPassWord),
               ),
             ),
             const SizedBox(height: kDefaultPadding),
@@ -127,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   MaterialPageRoute(builder: (context) => SignUp()),
                 );
               },
-              child: Text("Don't have an account? Sigh up"),
+              child: Text(t.dontHaveAccount),
             ),
           ],
         ),

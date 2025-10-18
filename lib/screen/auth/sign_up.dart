@@ -21,35 +21,77 @@ class _SignUpState extends State<SignUp> {
   bool _isLoading = false;
   bool _isPasswordVisible = false;
 
+  String? _validateInput(String email, String password, AppLocalizations t) {
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if (!emailRegex.hasMatch(email)) {
+      return t.emailInvalid;
+    }
+
+    if (password.length < 8) {
+      return t.passwordTooShort;
+    }
+    if (!password.contains(RegExp(r'[A-Z]'))) {
+      return t.passwordMissingUppercase;
+    }
+    if (!password.contains(RegExp(r'[a-z]'))) {
+      return t.passwordMissingLowercase;
+    }
+    if (!password.contains(RegExp(r'[0-9]'))) {
+      return t.passwordMissingDigit;
+    }
+    if (!password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+      return t.passwordMissingSpecial;
+    }
+
+    return null;
+  }
+
   void _signUp() async {
+    final t = AppLocalizations.of(context)!;
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    final validationError = _validateInput(email, password, t);
+    if (validationError != null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(validationError)));
+      return;
+    }
+
     setState(() {
       _isLoading = true;
     });
+
     try {
       UserCredential userCredential = await _auth
-          .createUserWithEmailAndPassword(
-            email: _emailController.text.trim(),
-            password: _passwordController.text.trim(),
-          );
+          .createUserWithEmailAndPassword(email: email, password: password);
+
       if (!mounted) return;
       User? user = userCredential.user;
       if (user != null && !user.emailVerified) {
         await user.sendEmailVerification();
       }
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Verification email sent! Please check your email"),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.verificationEmailSent)));
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => VerifyEmail()),
+        MaterialPageRoute(builder: (context) => const VerifyEmail()),
       );
     } on FirebaseAuthException catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? "Sign failed")),
-      );
+      String errorMessage;
+      switch (e.code) {
+        case 'email-already-in-use':
+          errorMessage = t.emailInUse;
+          break;
+        default:
+          errorMessage = t.somethingWentWrong;
+      }
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(errorMessage)));
     } finally {
       if (mounted) {
         setState(() {
@@ -59,29 +101,18 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
-  goHome(BuildContext context) {
-    // Xóa tất cả các màn hình cũ (Login, Signup) và đẩy ChatsScreen vào
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => const ChatsScreen()),
-      (route) => false, // (route) => false có nghĩa là xóa hết các route cũ
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: Text(t.signup),
-      ),
+      appBar: AppBar(centerTitle: true, title: Text(t.signup)),
       body: Padding(
         padding: EdgeInsets.all(kDefaultPadding),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/images/logo_phenikaa_dark.jpg', height: 146),
+            const SizedBox(height: kDefaultPadding),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
@@ -95,7 +126,7 @@ class _SignUpState extends State<SignUp> {
               controller: _passwordController,
               obscureText: !_isPasswordVisible,
               decoration: InputDecoration(
-                labelText: "Password",
+                labelText: t.password,
                 border: OutlineInputBorder(),
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -122,7 +153,7 @@ class _SignUpState extends State<SignUp> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-              child: Text("Already have an account? Sigh in"),
+              child: Text(t.alreadyHaveAccount),
             ),
           ],
         ),

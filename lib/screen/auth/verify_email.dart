@@ -3,6 +3,8 @@ import 'package:chat_app/screen/chats/chats_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localization.dart';
+
 class VerifyEmail extends StatefulWidget {
   const VerifyEmail({super.key});
 
@@ -61,26 +63,27 @@ class _VerifyEmailState extends State<VerifyEmail> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Verify Email")),
+      appBar: AppBar(centerTitle: true, title: Text(t.verifiedEmail)),
       body: Padding(
         padding: EdgeInsets.all(kDefaultPadding),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "A verification email has been sent to your email address.\nPlease check your inbox and verify your email.",
+              t.verifyMessage,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: kDefaultPadding),
             ElevatedButton(
               onPressed: _checkEmailVerified,
-              child: Text("I have verified"),
+              child: Text(t.verified),
             ),
             const SizedBox(height: kDefaultPadding),
             ElevatedButton(
               onPressed: _resendVerificationEmail,
-              child: Text("Resend Verification Email"),
+              child: Text(t.resendEmail),
             ),
           ],
         ),

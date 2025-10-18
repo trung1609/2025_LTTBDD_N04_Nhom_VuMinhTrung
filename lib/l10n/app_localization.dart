@@ -439,6 +439,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'last seen {count} hours ago'**
   String lastSeenHoursAgo(Object count);
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPassword;
+
+  /// No description provided for @forgotPassWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassWord;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account? Sign up'**
+  String get dontHaveAccount;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account? Sign in'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @enterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email'**
+  String get enterEmail;
+
+  /// No description provided for @sendResetEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Reset Password'**
+  String get sendResetEmail;
+
+  /// No description provided for @verifyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'A verification email has been sent to your email address.\nPlease check your inbox and verify your email.'**
+  String get verifyMessage;
+
+  /// No description provided for @verified.
+  ///
+  /// In en, this message translates to:
+  /// **'I have verified'**
+  String get verified;
+
+  /// No description provided for @resendEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend Verification Email'**
+  String get resendEmail;
+
+  /// No description provided for @verifiedEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Email'**
+  String get verifiedEmail;
+
+  /// No description provided for @emailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get emailInvalid;
+
+  /// No description provided for @passwordTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters long'**
+  String get passwordTooShort;
+
+  /// No description provided for @passwordMissingUppercase.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one uppercase letter'**
+  String get passwordMissingUppercase;
+
+  /// No description provided for @passwordMissingLowercase.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one lowercase letter'**
+  String get passwordMissingLowercase;
+
+  /// No description provided for @passwordMissingDigit.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one number'**
+  String get passwordMissingDigit;
+
+  /// No description provided for @passwordMissingSpecial.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one special character'**
+  String get passwordMissingSpecial;
+
+  /// No description provided for @fillAllFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill in all fields'**
+  String get fillAllFields;
+
+  /// No description provided for @emailInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'This email address is already in use'**
+  String get emailInUse;
+
+  /// No description provided for @userNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No user found for that email'**
+  String get userNotFound;
+
+  /// No description provided for @wrongPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong password provided for that user'**
+  String get wrongPassword;
+
+  /// No description provided for @loginFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Login failed. Please check your credentials'**
+  String get loginFailed;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong, please try again'**
+  String get somethingWentWrong;
+
+  /// No description provided for @verificationEmailSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification email sent! Please check your email'**
+  String get verificationEmailSent;
+
+  /// No description provided for @resetEmailSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset email sent! Check your inbox'**
+  String get resetEmailSent;
+
+  /// No description provided for @resetEmailFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Error sending reset email'**
+  String get resetEmailFailed;
 }
 
 class _AppLocalizationsDelegate

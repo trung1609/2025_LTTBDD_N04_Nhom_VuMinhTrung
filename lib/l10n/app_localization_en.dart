@@ -191,4 +191,88 @@ class AppLocalizationsEn extends AppLocalizations {
   String lastSeenHoursAgo(Object count) {
     return 'last seen $count hours ago';
   }
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get resetPassword => 'Reset Password';
+
+  @override
+  String get forgotPassWord => 'Forgot Password?';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an account? Sign up';
+
+  @override
+  String get alreadyHaveAccount => 'Already have an account? Sign in';
+
+  @override
+  String get enterEmail => 'Enter your email';
+
+  @override
+  String get sendResetEmail => 'Send Reset Password';
+
+  @override
+  String get verifyMessage =>
+      'A verification email has been sent to your email address.\nPlease check your inbox and verify your email.';
+
+  @override
+  String get verified => 'I have verified';
+
+  @override
+  String get resendEmail => 'Resend Verification Email';
+
+  @override
+  String get verifiedEmail => 'Verify Email';
+
+  @override
+  String get emailInvalid => 'Please enter a valid email address';
+
+  @override
+  String get passwordTooShort => 'Password must be at least 8 characters long';
+
+  @override
+  String get passwordMissingUppercase =>
+      'Password must contain at least one uppercase letter';
+
+  @override
+  String get passwordMissingLowercase =>
+      'Password must contain at least one lowercase letter';
+
+  @override
+  String get passwordMissingDigit =>
+      'Password must contain at least one number';
+
+  @override
+  String get passwordMissingSpecial =>
+      'Password must contain at least one special character';
+
+  @override
+  String get fillAllFields => 'Please fill in all fields';
+
+  @override
+  String get emailInUse => 'This email address is already in use';
+
+  @override
+  String get userNotFound => 'No user found for that email';
+
+  @override
+  String get wrongPassword => 'Wrong password provided for that user';
+
+  @override
+  String get loginFailed => 'Login failed. Please check your credentials';
+
+  @override
+  String get somethingWentWrong => 'Something went wrong, please try again';
+
+  @override
+  String get verificationEmailSent =>
+      'Verification email sent! Please check your email';
+
+  @override
+  String get resetEmailSent => 'Password reset email sent! Check your inbox';
+
+  @override
+  String get resetEmailFailed => 'Error sending reset email';
 }

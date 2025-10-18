@@ -21,12 +21,7 @@ class SigninOrSignupScreen extends StatelessWidget {
           child: Column(
             children: [
               Spacer(flex: 2),
-              Image.asset(
-                MediaQuery.of(context).platformBrightness == Brightness.light
-                    ? 'assets/images/Logo-DH-Phenikaa-V-Wh.webp'
-                    : 'assets/images/logo_phenikaa_dark.jpg',
-                height: 146,
-              ),
+              Image.asset('assets/images/logo_phenikaa_dark.jpg', height: 146),
 
               SizedBox(height: 50),
               PrimaryButton(

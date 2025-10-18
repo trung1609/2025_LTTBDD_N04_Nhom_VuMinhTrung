@@ -2,6 +2,8 @@ import 'package:chat_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localization.dart';
+
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
 
@@ -41,8 +43,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Reset Password")),
+      appBar: AppBar(centerTitle: true, title: Text(t.resetPassword)),
       body: Padding(
         padding: EdgeInsets.all(kDefaultPadding),
         child: Column(
@@ -51,7 +54,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
-                labelText: "Enter your email",
+                labelText: t.enterEmail,
                 border: OutlineInputBorder(),
               ),
             ),
@@ -60,7 +63,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ? CircularProgressIndicator()
                 : ElevatedButton(
                     onPressed: _resetPassword,
-                    child: Text("Send Reset Email"),
+                    child: Text(t.sendResetEmail),
                   ),
           ],
         ),

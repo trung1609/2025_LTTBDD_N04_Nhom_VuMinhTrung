@@ -192,4 +192,89 @@ class AppLocalizationsVi extends AppLocalizations {
   String lastSeenHoursAgo(Object count) {
     return 'truy cập $count giờ trước';
   }
+
+  @override
+  String get password => 'Mật khẩu';
+
+  @override
+  String get resetPassword => 'Đặt lại mật khẩu';
+
+  @override
+  String get forgotPassWord => 'Quên mật khẩu?';
+
+  @override
+  String get dontHaveAccount => 'Chưa có tài khoản? Đăng ký ngay';
+
+  @override
+  String get alreadyHaveAccount => 'Đã có tài khoản? Đăng nhập ngay';
+
+  @override
+  String get enterEmail => 'Nhập email của bạn';
+
+  @override
+  String get sendResetEmail => 'Đặt lại mật khẩu';
+
+  @override
+  String get verifyMessage =>
+      'Một email xác nhận đã được gửi đến địa chỉ email của bạn.\nVui lòng kiểm tra hộp thư của bạn và xác thực email của bạn.';
+
+  @override
+  String get verified => 'Tôi đã xác nhận';
+
+  @override
+  String get resendEmail => 'Gửi lại email xác nhận';
+
+  @override
+  String get verifiedEmail => 'Xác nhận email';
+
+  @override
+  String get emailInvalid => 'Vui lòng nhập một địa chỉ email hợp lệ';
+
+  @override
+  String get passwordTooShort => 'Mật khẩu phải có ít nhất 8 ký tự';
+
+  @override
+  String get passwordMissingUppercase =>
+      'Mật khẩu phải chứa ít nhất một chữ hoa';
+
+  @override
+  String get passwordMissingLowercase =>
+      'Mật khẩu phải chứa ít nhất một chữ thường';
+
+  @override
+  String get passwordMissingDigit => 'Mật khẩu phải chứa ít nhất một con số';
+
+  @override
+  String get passwordMissingSpecial =>
+      'Mật khẩu phải chứa ít nhất một ký tự đặc biệt';
+
+  @override
+  String get fillAllFields => 'Vui lòng điền đầy đủ thông tin';
+
+  @override
+  String get emailInUse => 'Địa chỉ email này đã được sử dụng';
+
+  @override
+  String get userNotFound => 'Không tìm thấy người dùng với email này';
+
+  @override
+  String get wrongPassword => 'Mật khẩu không chính xác';
+
+  @override
+  String get loginFailed =>
+      'Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin';
+
+  @override
+  String get somethingWentWrong => 'Đã có lỗi xảy ra, vui lòng thử lại';
+
+  @override
+  String get verificationEmailSent =>
+      'Email xác thực đã được gửi! Vui lòng kiểm tra hòm thư';
+
+  @override
+  String get resetEmailSent =>
+      'Email đặt lại mật khẩu đã được gửi! Vui lòng kiểm tra hòm thư';
+
+  @override
+  String get resetEmailFailed => 'Lỗi khi gửi email đặt lại mật khẩu';
 }
