@@ -123,13 +123,7 @@ class MyDrawer extends StatelessWidget {
               ),
               leading: Icon(Icons.logout),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SigninOrSignupScreen(),
-                  ),
-                );
+                _logout(context);
               },
             ),
           ),
