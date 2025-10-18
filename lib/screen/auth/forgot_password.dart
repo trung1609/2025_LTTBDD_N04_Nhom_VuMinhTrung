@@ -12,11 +12,13 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+
   final _emailController = TextEditingController();
   final _auth = FirebaseAuth.instance;
   bool _isLoading = false;
 
   void _resetPassword() async {
+    final t = AppLocalizations.of(context)!;
     setState(() {
       _isLoading = true;
     });
@@ -24,13 +26,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       await _auth.sendPasswordResetEmail(email: _emailController.text.trim());
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Password reset email sent! Check your inbox")),
+        SnackBar(content: Text(t.sendResetEmail)),
       );
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? "Error sending reset email")),
+        SnackBar(content: Text(e.message ?? t.errorSendPassword)),
       );
     } finally {
       if (mounted) {

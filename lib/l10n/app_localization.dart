@@ -595,6 +595,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error sending reset email'**
   String get resetEmailFailed;
+
+  /// No description provided for @sendPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset email sent! Check your inbox'**
+  String get sendPassword;
+
+  /// No description provided for @errorSendPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Error sending reset email'**
+  String get errorSendPassword;
+
+  /// No description provided for @checkVerificationEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification email resent! Check your email'**
+  String get checkVerificationEmail;
+
+  /// No description provided for @tooManyRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many requests have been sent. Please wait a moment before trying again.'**
+  String get tooManyRequests;
 }
 
 class _AppLocalizationsDelegate

@@ -38,6 +38,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
   }
 
   Future<void> _resendVerificationEmail() async {
+    final t = AppLocalizations.of(context)!;
     setState(() {
       _isLoading = true;
     });
@@ -45,12 +46,12 @@ class _VerifyEmailState extends State<VerifyEmail> {
       await _auth.currentUser?.sendEmailVerification();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Verification email resent! Check your email")),
+        SnackBar(content: Text(t.checkVerificationEmail)),
       );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Error sending email: ${e.toString()}")),
+        SnackBar(content: Text(t.tooManyRequests)),
       );
     } finally {
       if (mounted) {

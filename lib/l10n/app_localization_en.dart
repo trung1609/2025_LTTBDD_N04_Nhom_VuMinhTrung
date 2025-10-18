@@ -275,4 +275,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resetEmailFailed => 'Error sending reset email';
+
+  @override
+  String get sendPassword => 'Password reset email sent! Check your inbox';
+
+  @override
+  String get errorSendPassword => 'Error sending reset email';
+
+  @override
+  String get checkVerificationEmail =>
+      'Verification email resent! Check your email';
+
+  @override
+  String get tooManyRequests =>
+      'Too many requests have been sent. Please wait a moment before trying again.';
 }

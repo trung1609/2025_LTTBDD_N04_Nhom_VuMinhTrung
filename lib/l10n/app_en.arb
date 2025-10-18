@@ -82,5 +82,9 @@
   "somethingWentWrong": "Something went wrong, please try again",
   "verificationEmailSent": "Verification email sent! Please check your email",
   "resetEmailSent": "Password reset email sent! Check your inbox",
-  "resetEmailFailed": "Error sending reset email"
+  "resetEmailFailed": "Error sending reset email",
+  "sendPassword": "Password reset email sent! Check your inbox",
+  "errorSendPassword": "Error sending reset email",
+  "checkVerificationEmail": "Verification email resent! Check your email",
+  "tooManyRequests": "Too many requests have been sent. Please wait a moment before trying again."
 }

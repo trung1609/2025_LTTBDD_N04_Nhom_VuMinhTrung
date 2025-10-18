@@ -277,4 +277,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get resetEmailFailed => 'Lỗi khi gửi email đặt lại mật khẩu';
+
+  @override
+  String get sendPassword =>
+      'Email đặt lại mật khẩu đã gửi! Kiểm tra hộp thư của bạn';
+
+  @override
+  String get errorSendPassword => 'Lỗi khi gửi email đặt lại';
+
+  @override
+  String get checkVerificationEmail =>
+      'Email xác nhận đã gửi lại! Vui lòng kiểm tra hộp thư của bạn';
+
+  @override
+  String get tooManyRequests =>
+      'Bạn đã gửi quá nhiều yêu cầu. Vui lòng đợi một lát rồi thử lại.';
 }

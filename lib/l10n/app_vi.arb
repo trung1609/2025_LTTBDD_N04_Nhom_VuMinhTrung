@@ -82,5 +82,9 @@
   "somethingWentWrong": "Đã có lỗi xảy ra, vui lòng thử lại",
   "verificationEmailSent": "Email xác thực đã được gửi! Vui lòng kiểm tra hòm thư",
   "resetEmailSent": "Email đặt lại mật khẩu đã được gửi! Vui lòng kiểm tra hòm thư",
-  "resetEmailFailed": "Lỗi khi gửi email đặt lại mật khẩu"
+  "resetEmailFailed": "Lỗi khi gửi email đặt lại mật khẩu",
+  "sendPassword": "Email đặt lại mật khẩu đã gửi! Kiểm tra hộp thư của bạn",
+  "errorSendPassword": "Lỗi khi gửi email đặt lại",
+  "checkVerificationEmail": "Email xác nhận đã gửi lại! Vui lòng kiểm tra hộp thư của bạn",
+  "tooManyRequests": "Bạn đã gửi quá nhiều yêu cầu. Vui lòng đợi một lát rồi thử lại."
 }
