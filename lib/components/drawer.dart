@@ -11,7 +11,9 @@ import 'package:chat_app/main.dart';
 import '../l10n/app_localization.dart'; // Để dùng MyApp.isDarkNotifier
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  final Function(int) onItemSelected;
+
+  const MyDrawer({super.key, required this.onItemSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +51,7 @@ class MyDrawer extends StatelessWidget {
                   ),
                   leading: Icon(Icons.home),
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ChatsScreen()),
-                    );
+                    onItemSelected(0);
                   },
                 ),
               ),
@@ -67,11 +65,7 @@ class MyDrawer extends StatelessWidget {
                   ),
                   leading: Icon(Icons.people),
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PeopleScreen()),
-                    );
+                    onItemSelected(1);
                   },
                 ),
               ),
@@ -85,11 +79,7 @@ class MyDrawer extends StatelessWidget {
                   ),
                   leading: Icon(Icons.call),
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CallsScreen()),
-                    );
+                    onItemSelected(2);
                   },
                 ),
               ),
@@ -103,11 +93,7 @@ class MyDrawer extends StatelessWidget {
                   ),
                   leading: Icon(Icons.person),
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProfileScreen()),
-                    );
+                    onItemSelected(3);
                   },
                 ),
               ),

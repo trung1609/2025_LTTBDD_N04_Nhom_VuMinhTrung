@@ -45,14 +45,14 @@ class _VerifyEmailState extends State<VerifyEmail> {
     try {
       await _auth.currentUser?.sendEmailVerification();
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(t.checkVerificationEmail)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.checkVerificationEmail)));
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(t.tooManyRequests)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.tooManyRequests)));
     } finally {
       if (mounted) {
         setState(() {
@@ -72,10 +72,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              t.verifyMessage,
-              textAlign: TextAlign.center,
-            ),
+            Text(t.verifyMessage, textAlign: TextAlign.center),
             const SizedBox(height: kDefaultPadding),
             ElevatedButton(
               onPressed: _checkEmailVerified,

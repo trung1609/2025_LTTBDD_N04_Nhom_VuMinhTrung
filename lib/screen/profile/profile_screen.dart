@@ -52,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
                       backgroundColor: kSecondaryColor,
                       backgroundImage: AssetImage('assets/images/avatar.jpg'),
                     ),
-                    SizedBox(width: kDefaultPadding,),
+                    SizedBox(width: kDefaultPadding),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

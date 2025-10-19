@@ -33,12 +33,12 @@ class _CallsScreenState extends State<CallsScreen> {
       body: Body(
         selectedTab: selectedTab,
         filteredCalls: filteredCalls,
-        onTabSelected: (tab){
+        onTabSelected: (tab) {
           setState(() {
             selectedTab = tab;
           });
-        }
-      )
+        },
+      ),
     );
   }
 }

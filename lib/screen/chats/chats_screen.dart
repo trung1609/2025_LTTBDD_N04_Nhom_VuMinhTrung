@@ -17,57 +17,45 @@ class ChatsScreen extends StatefulWidget {
 
 class _ChatsScreenState extends State<ChatsScreen> {
   int _selectedIndex = 0;
+  late final List<Widget> _pages;
+
+  void _onDrawerItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    onItemSelected(index);
+  }
+
+  void onItemSelected(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    Navigator.pop(context);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      Body(onItemSelected: _onDrawerItemTapped),
+      const PeopleScreen(),
+      const CallsScreen(),
+      const ProfileScreen(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
-      drawer: const MyDrawer(),
-      body: const Body(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: kPrimaryColor,
-        child: const Icon(Icons.person_add_alt_1, color: Colors.white),
-      ),
+      body: IndexedStack(index: _selectedIndex, children: _pages),
+      floatingActionButton: _selectedIndex == 1
+          ? FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: kPrimaryColor,
+              child: const Icon(Icons.person_add, color: Colors.white),
+            )
+          : null,
       bottomNavigationBar: buildBottomNavigationBar(),
-    );
-  }
-
-  AppBar buildAppBar() {
-    final t = AppLocalizations.of(context)!;
-    return AppBar(
-      backgroundColor: kPrimaryColor,
-      title: Text(t.chats),
-      leading: Builder(
-        builder: (context) => IconButton(
-          onPressed: () => Scaffold.of(context).openDrawer(),
-          icon: const Icon(Icons.menu),
-        ),
-      ),
-      actions: [
-        // Nút bật/tắt theme
-        IconButton(
-          icon: Icon(
-            MyApp.isDarkNotifier.value ? Icons.light_mode : Icons.dark_mode,
-          ),
-          onPressed: () {
-            MyApp.isDarkNotifier.value = !MyApp.isDarkNotifier.value;
-          },
-        ),
-        //Nut switch language
-        IconButton(
-          icon: Icon(Icons.language),
-          tooltip: t.changeLanguage,
-          onPressed: () {
-            if (MyApp.localeNotifier.value.languageCode == 'en') {
-              MyApp.localeNotifier.value = const Locale('vi');
-            } else {
-              MyApp.localeNotifier.value = const Locale('en');
-            }
-          },
-        ),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-      ],
     );
   }
 
@@ -87,34 +75,13 @@ class _ChatsScreenState extends State<ChatsScreen> {
           label: t.chats,
         ),
         BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const PeopleScreen()),
-            ),
-            icon: const Icon(Icons.people),
-          ),
+          icon: const Icon(Icons.people),
           label: t.people,
         ),
+        BottomNavigationBarItem(icon: const Icon(Icons.call), label: t.calls),
         BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CallsScreen()),
-            ),
-            icon: const Icon(Icons.call),
-          ),
-          label: t.calls,
-        ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ProfileScreen()),
-            ),
-            icon: const CircleAvatar(
-              backgroundImage: AssetImage('assets/images/avatar.jpg'),
-            ),
+          icon: const CircleAvatar(
+            backgroundImage: AssetImage('assets/images/avatar.jpg'),
           ),
           label: t.profile,
         ),

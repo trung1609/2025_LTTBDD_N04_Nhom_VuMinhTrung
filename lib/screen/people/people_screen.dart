@@ -59,10 +59,7 @@ class PeopleScreen extends StatelessWidget {
               Icons.location_on_outlined,
               color: kPrimaryColor,
             ),
-            title: Text(
-              t.addPeople,
-              style: TextStyle(color: kPrimaryColor),
-            ),
+            title: Text(t.addPeople, style: TextStyle(color: kPrimaryColor)),
             onTap: () {},
           ),
           Divider(
@@ -77,10 +74,7 @@ class PeopleScreen extends StatelessWidget {
               Icons.person_add_alt_outlined,
               color: kPrimaryColor,
             ),
-            title: Text(
-              t.addContacts,
-              style: TextStyle(color: kPrimaryColor),
-            ),
+            title: Text(t.addContacts, style: TextStyle(color: kPrimaryColor)),
             onTap: () {},
           ),
           Divider(
@@ -153,5 +147,3 @@ class PeopleScreen extends StatelessWidget {
     );
   }
 }
-
-
