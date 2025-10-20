@@ -27,6 +27,7 @@ class _CallsScreenState extends State<CallsScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
+        automaticallyImplyLeading: false,
         title: Text(t.calls),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add_call))],
       ),

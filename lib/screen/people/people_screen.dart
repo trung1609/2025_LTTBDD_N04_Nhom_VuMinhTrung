@@ -35,6 +35,7 @@ class PeopleScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
+        automaticallyImplyLeading: false,
         title: Text(t.people),
         actions: [
           IconButton(
