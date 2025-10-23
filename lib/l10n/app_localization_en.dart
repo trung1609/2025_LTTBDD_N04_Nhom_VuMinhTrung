@@ -289,4 +289,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tooManyRequests =>
       'Too many requests have been sent. Please wait a moment before trying again.';
+
+  @override
+  String get logoutConfirmation => 'Are you sure you want to log out?';
+
+  @override
+  String get agree => 'Agree';
 }

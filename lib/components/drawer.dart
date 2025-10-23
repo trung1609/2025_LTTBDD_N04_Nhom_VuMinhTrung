@@ -15,16 +15,43 @@ class MyDrawer extends StatelessWidget {
 
   const MyDrawer({super.key, required this.onItemSelected});
 
+  void _logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const SigninOrSignupScreen()),
+    );
+  }
+
+  void _showLogoutConfirmationDialog(BuildContext context, AppLocalizations t) {
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Text(t.logout),
+          content: Text(t.logoutConfirmation),
+          actions: <Widget>[
+            TextButton(
+              child: Text(t.cancel),
+              onPressed: () {
+                Navigator.pop(dialogContext);
+              },
+            ),
+
+            TextButton(
+              child: Text(t.agree),
+              onPressed: () {
+                _logout(context);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    void _logout(BuildContext context) async {
-      await FirebaseAuth.instance.signOut();
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => SigninOrSignupScreen()),
-      );
-    }
-
     final t = AppLocalizations.of(context)!;
     return Drawer(
       child: Column(
@@ -109,7 +136,7 @@ class MyDrawer extends StatelessWidget {
               ),
               leading: Icon(Icons.logout),
               onTap: () {
-                _logout(context);
+                _showLogoutConfirmationDialog(context, t);
               },
             ),
           ),

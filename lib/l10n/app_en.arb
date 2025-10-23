@@ -86,5 +86,8 @@
   "sendPassword": "Password reset email sent! Check your inbox",
   "errorSendPassword": "Error sending reset email",
   "checkVerificationEmail": "Verification email resent! Check your email",
-  "tooManyRequests": "Too many requests have been sent. Please wait a moment before trying again."
+  "tooManyRequests": "Too many requests have been sent. Please wait a moment before trying again.",
+  "logoutConfirmation": "Are you sure you want to log out?",
+  "cancel": "Cancel",
+  "agree": "Agree"
 }

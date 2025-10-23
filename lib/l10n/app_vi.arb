@@ -86,5 +86,8 @@
   "sendPassword": "Email đặt lại mật khẩu đã gửi! Kiểm tra hộp thư của bạn",
   "errorSendPassword": "Lỗi khi gửi email đặt lại",
   "checkVerificationEmail": "Email xác nhận đã gửi lại! Vui lòng kiểm tra hộp thư của bạn",
-  "tooManyRequests": "Bạn đã gửi quá nhiều yêu cầu. Vui lòng đợi một lát rồi thử lại."
+  "tooManyRequests": "Bạn đã gửi quá nhiều yêu cầu. Vui lòng đợi một lát rồi thử lại.",
+  "logoutConfirmation": "Bạn có chắc chắn muốn đăng xuất không?",
+  "cancel": "Hủy",
+  "agree": "Đồng ý"
 }

@@ -292,4 +292,10 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get tooManyRequests =>
       'Bạn đã gửi quá nhiều yêu cầu. Vui lòng đợi một lát rồi thử lại.';
+
+  @override
+  String get logoutConfirmation => 'Bạn có chắc chắn muốn đăng xuất không?';
+
+  @override
+  String get agree => 'Đồng ý';
 }

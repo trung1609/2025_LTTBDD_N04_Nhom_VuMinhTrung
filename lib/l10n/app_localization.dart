@@ -619,6 +619,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Too many requests have been sent. Please wait a moment before trying again.'**
   String get tooManyRequests;
+
+  /// No description provided for @logoutConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to log out?'**
+  String get logoutConfirmation;
+
+  /// No description provided for @agree.
+  ///
+  /// In en, this message translates to:
+  /// **'Agree'**
+  String get agree;
 }
 
 class _AppLocalizationsDelegate
