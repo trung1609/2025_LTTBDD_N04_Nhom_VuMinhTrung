@@ -42,7 +42,7 @@ class WelcomeScreen extends StatelessWidget {
                       FittedBox(
                         child: TextButton(
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>

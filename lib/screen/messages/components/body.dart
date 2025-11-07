@@ -7,7 +7,9 @@ import 'chat_input_field.dart';
 import 'message.dart';
 
 class Body extends StatelessWidget {
-  const Body({super.key});
+  const Body({super.key, required this.chattingPartnerImage});
+
+  final String chattingPartnerImage;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +20,10 @@ class Body extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: ListView.builder(
               itemCount: demeChatMessages.length,
-              itemBuilder: (context, index) =>
-                  Message(message: demeChatMessages[index]),
+              itemBuilder: (context, index) => Message(
+                message: demeChatMessages[index],
+                chattingPartnerImage: chattingPartnerImage,
+              ),
             ),
           ),
         ),

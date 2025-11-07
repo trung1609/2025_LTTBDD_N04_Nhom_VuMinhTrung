@@ -21,38 +21,43 @@ List<People> peopleData = [
     isOnline: true,
   ),
   People(
-    name: "Alexander Martin",
+    name: "Jenny Wilson",
     image: 'assets/images/user.png',
     lastSeen: DateTime.now().subtract(const Duration(minutes: 10)),
   ),
   People(
-    name: "Ralph Edwards",
-    image: 'assets/images/user.png',
-    lastSeen: DateTime.now().subtract(const Duration(hours: 1)),
-  ),
-  People(
-    name: "Jacob Jones",
-    image: 'assets/images/user_4.png',
-    lastSeen: DateTime.now().subtract(const Duration(minutes: 45)),
-  ),
-  People(
     name: "Esther Howard",
     image: 'assets/images/user_2.png',
-    isOnline: true,
-  ),
-  People(
-    name: "Alexander Martin",
-    image: 'assets/images/user.png',
-    isOnline: true,
+    lastSeen: DateTime.now().subtract(const Duration(hours: 1)),
   ),
   People(
     name: "Ralph Edwards",
     image: 'assets/images/user_3.png',
-    lastSeen: DateTime.now().subtract(const Duration(minutes: 1)),
+    lastSeen: DateTime.now().subtract(const Duration(minutes: 45)),
   ),
   People(
     name: "Jacob Jones",
     image: 'assets/images/user_4.png',
+    isOnline: true,
+  ),
+  People(
+    name: "Albert Flores",
+    image: 'assets/images/user_5.png',
+    isOnline: true,
+  ),
+  People(
+    name: "Jenny Wilson",
+    image: 'assets/images/user.png',
+    lastSeen: DateTime.now().subtract(const Duration(minutes: 1)),
+  ),
+  People(
+    name: "Esther Howard",
+    image: 'assets/images/user_2.png',
+    lastSeen: DateTime.now().subtract(const Duration(minutes: 20)),
+  ),
+  People(
+    name: "Ralph Edwards",
+    image: 'assets/images/user_3.png',
     lastSeen: DateTime.now().subtract(const Duration(minutes: 20)),
   ),
 ];

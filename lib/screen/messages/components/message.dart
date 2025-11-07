@@ -7,7 +7,13 @@ import '../../../models/chat_message.dart';
 import 'audio_message.dart';
 
 class Message extends StatelessWidget {
-  const Message({super.key, required this.message});
+  final String chattingPartnerImage;
+
+  const Message({
+    super.key,
+    required this.message,
+    required this.chattingPartnerImage,
+  });
 
   final ChatMessage message;
 
@@ -39,7 +45,7 @@ class Message extends StatelessWidget {
           if (!message.isSender) ...[
             CircleAvatar(
               radius: 12,
-              backgroundImage: AssetImage('assets/images/avatar.jpg'),
+              backgroundImage: AssetImage(chattingPartnerImage),
             ),
             SizedBox(width: kDefaultPadding / 2),
           ],

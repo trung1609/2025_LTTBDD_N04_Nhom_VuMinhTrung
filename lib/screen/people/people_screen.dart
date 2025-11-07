@@ -1,3 +1,4 @@
+import 'package:chat_app/screen/messages/messages_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/models/People.dart';
@@ -91,53 +92,65 @@ class PeopleScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final people = peopleData[index];
 
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: kDefaultPadding / 1.75,
-                    vertical: kDefaultPadding * 0.75,
-                  ),
-                  child: Row(
-                    children: [
-                      Stack(
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage(people.image),
-                            radius: 25,
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                people.name,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: Theme.of(
-                                    context,
-                                  ).textTheme.bodyMedium!.color,
-                                ),
-                              ),
-                              Text(
-                                getTranslatedStatus(people),
-                                style: TextStyle(
-                                  color: people.isOnline
-                                      ? kPrimaryColor
-                                      : Theme.of(
-                                          context,
-                                        ).textTheme.bodyMedium!.color,
-                                ),
-                              ),
-                            ],
-                          ),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MessagesScreen(
+                          people: people,
                         ),
                       ),
-                    ],
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: kDefaultPadding / 1.75,
+                      vertical: kDefaultPadding * 0.75,
+                    ),
+                    child: Row(
+                      children: [
+                        Stack(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: AssetImage(people.image),
+                              radius: 25,
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  people.name,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme.of(
+                                      context,
+                                    ).textTheme.bodyMedium!.color,
+                                  ),
+                                ),
+                                Text(
+                                  getTranslatedStatus(people),
+                                  style: TextStyle(
+                                    color: people.isOnline
+                                        ? kPrimaryColor
+                                        : Theme.of(
+                                            context,
+                                          ).textTheme.bodyMedium!.color,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

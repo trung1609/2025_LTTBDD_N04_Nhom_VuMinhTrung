@@ -1,79 +1,72 @@
+import 'package:chat_app/models/People.dart';
+
 class Chat {
-  final String name, lastMessage, image;
+  final String lastMessage;
   final bool isActive;
   final DateTime time;
+  final People people;
 
   Chat({
-    this.name = '',
+    required this.people,
     this.lastMessage = '',
-    this.image = '',
     required this.time,
     this.isActive = false,
   });
 }
 
-List chatsData = [
+List<Chat> chatsData = [
   Chat(
-    name: "Trung",
     lastMessage: "Hello my friends! I am...",
-    image: "assets/images/avatar.jpg",
     time: DateTime.now().subtract(const Duration(minutes: 8)),
     isActive: true,
+    people: peopleData[0],
   ),
   Chat(
-    name: "Jenny Wilson",
     lastMessage: "Hope you are doing well...",
-    image: "assets/images/user.png",
     time: DateTime.now().subtract(const Duration(minutes: 3)),
     isActive: false,
+    people: peopleData[2],
   ),
   Chat(
-    name: "Esther Howard",
     lastMessage: "Hello Abdullah! I am...",
-    image: "assets/images/user_2.png",
     time: DateTime.now().subtract(const Duration(minutes: 8)),
     isActive: true,
+    people: peopleData[1],
   ),
   Chat(
-    name: "Ralph Edwards",
     lastMessage: "Do you have update...",
-    image: "assets/images/user_3.png",
     time: DateTime.now().subtract(const Duration(days: 5)),
     isActive: false,
+    people: peopleData[4],
   ),
   Chat(
-    name: "Jacob Jones",
     lastMessage: "You’re welcome :)",
-    image: "assets/images/user_4.png",
     time: DateTime.now().subtract(const Duration(days: 7)),
     isActive: true,
+    people: peopleData[5],
   ),
   Chat(
-    name: "Albert Flores",
     lastMessage: "Thanks",
-    image: "assets/images/user_5.png",
     time: DateTime.now().subtract(const Duration(minutes: 3)),
     isActive: false,
+    people: peopleData[6],
   ),
   Chat(
-    name: "Jenny Wilson",
     lastMessage: "Hope you are doing well...",
-    image: "assets/images/user.png",
     time: DateTime.now().subtract(const Duration(minutes: 3)),
     isActive: false,
+    people: peopleData[7],
   ),
   Chat(
-    name: "Esther Howard",
     lastMessage: "Hello Abdullah! I am...",
-    image: "assets/images/user_2.png",
     time: DateTime.now().subtract(const Duration(minutes: 8)),
     isActive: true,
+    people: peopleData[8],
   ),
   Chat(
-    name: "Ralph Edwards",
     lastMessage: "Do you have update...",
-    image: "assets/images/user_3.png",
     time: DateTime.now().subtract(const Duration(days: 5)),
     isActive: false,
+    people: peopleData[9],
   ),
 ];
