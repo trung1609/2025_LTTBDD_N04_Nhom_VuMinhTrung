@@ -8,7 +8,8 @@ import '../../l10n/app_localization.dart';
 class MessagesScreen extends StatelessWidget {
   final People people;
 
-  const MessagesScreen({super.key, required this.people, });
+  const MessagesScreen({super.key, required this.people});
+
   String _getTranslatedStatus(BuildContext context, People people) {
     final t = AppLocalizations.of(context)!;
 
@@ -32,6 +33,7 @@ class MessagesScreen extends StatelessWidget {
     }
     return "";
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +56,10 @@ class MessagesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(people.name, style: TextStyle(fontSize: 16)),
-              Text(_getTranslatedStatus(context, people), style: TextStyle(fontSize: 12)),
+              Text(
+                _getTranslatedStatus(context, people),
+                style: TextStyle(fontSize: 12),
+              ),
             ],
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:chat_app/screen/messages/messages_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/models/Calls.dart';
 import 'package:chat_app/constants.dart';
@@ -93,7 +94,7 @@ class Body extends StatelessWidget {
                       Stack(
                         children: [
                           CircleAvatar(
-                            backgroundImage: AssetImage(call.image),
+                            backgroundImage: AssetImage(call.people.image),
                             radius: 24,
                           ),
                         ],
@@ -107,7 +108,7 @@ class Body extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                call.name,
+                                call.people.name,
                                 style: TextStyle(
                                   color: textColor,
                                   fontWeight: FontWeight.w600,
@@ -187,6 +188,15 @@ class Body extends StatelessWidget {
                                           title: Text(t.sendMessage),
                                           onTap: () {
                                             Navigator.pop(context);
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    MessagesScreen(
+                                                      people: call.people,
+                                                    ),
+                                              ),
+                                            );
                                           },
                                         ),
                                         ListTile(

@@ -97,9 +97,7 @@ class PeopleScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MessagesScreen(
-                          people: people,
-                        ),
+                        builder: (context) => MessagesScreen(people: people),
                       ),
                     );
                   },

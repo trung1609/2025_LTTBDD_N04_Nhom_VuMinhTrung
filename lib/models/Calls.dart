@@ -1,87 +1,24 @@
+import 'package:chat_app/models/People.dart';
+
 class Calls {
-  final String name, image;
+  final People people;
   final String date;
   final String type;
 
-  Calls({
-    required this.name,
-    required this.image,
-    required this.date,
-    required this.type,
-  });
+  Calls({required this.people, required this.date, required this.type});
 }
 
 List<Calls> calls = [
-  Calls(
-    name: "Trung",
-    image: 'assets/images/avatar.jpg',
-    date: '16/09/25',
-    type: "missed",
-  ),
-  Calls(
-    name: "Jenny Wilson",
-    image: 'assets/images/user.png',
-    date: '10/12/24',
-    type: "outgoing",
-  ),
-  Calls(
-    name: "Esther Howard",
-    image: 'assets/images/user_2.png',
-    date: '19/11/25',
-    type: "outgoing",
-  ),
-  Calls(
-    name: "Ralph Edwards",
-    image: 'assets/images/user_3.png',
-    date: '08/07/25',
-    type: 'missed',
-  ),
-  Calls(
-    name: "Jacob Jones",
-    image: 'assets/images/user_4.png',
-    date: '05/01/25',
-    type: 'incoming',
-  ),
-  Calls(
-    name: "Jenny Wilson",
-    image: 'assets/images/user.png',
-    date: '10/12/24',
-    type: "outgoing",
-  ),
-  Calls(
-    name: "Esther Howard",
-    image: 'assets/images/user_2.png',
-    date: '19/11/25',
-    type: "outgoing",
-  ),
-  Calls(
-    name: "Ralph Edwards",
-    image: 'assets/images/user_3.png',
-    date: '08/07/25',
-    type: 'missed',
-  ),
-  Calls(
-    name: "Jacob Jones",
-    image: 'assets/images/user_4.png',
-    date: '05/01/25',
-    type: 'outgoing',
-  ),
-  Calls(
-    name: "Esther Howard",
-    image: 'assets/images/user_2.png',
-    date: '19/11/25',
-    type: "missed",
-  ),
-  Calls(
-    name: "Ralph Edwards",
-    image: 'assets/images/user_3.png',
-    date: '08/07/25',
-    type: 'missed',
-  ),
-  Calls(
-    name: "Jacob Jones",
-    image: 'assets/images/user_4.png',
-    date: '05/01/25',
-    type: 'incoming',
-  ),
+  Calls(people: peopleData[0], date: '16/09/25', type: "missed"),
+  Calls(people: peopleData[2], date: '10/12/24', type: "outgoing"),
+  Calls(people: peopleData[1], date: '19/11/25', type: "outgoing"),
+  Calls(people: peopleData[4], date: '08/07/25', type: 'missed'),
+  Calls(people: peopleData[5], date: '05/01/25', type: 'incoming'),
+  Calls(people: peopleData[2], date: '10/12/24', type: "outgoing"),
+  Calls(people: peopleData[1], date: '19/11/25', type: "outgoing"),
+  Calls(people: peopleData[4], date: '08/07/25', type: 'missed'),
+  Calls(people: peopleData[5], date: '05/01/25', type: 'outgoing'),
+  Calls(people: peopleData[1], date: '19/11/25', type: "missed"),
+  Calls(people: peopleData[4], date: '08/07/25', type: 'missed'),
+  Calls(people: peopleData[5], date: '05/01/25', type: 'incoming'),
 ];
